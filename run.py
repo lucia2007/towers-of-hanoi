@@ -40,7 +40,7 @@ def validate_number(num):
             print("You didn't choose a number between 3 and 8. Try again.\n")
             return False
     except ValueError as error:
-        print(f"Invalid data: {error}. You did not choose a number.")
+        print(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     return True
 
@@ -73,7 +73,7 @@ def draw_disks():
     print(4*" ", 17*"#") 
     print(2*" ", 21*"#")
     print(1*" ", 23*"#", 1*" ", 23*"#", 1*" ", 23*"#")
-    print(80*"_")
+    print(79*"_", " \n")
 
 
 draw_disks()
