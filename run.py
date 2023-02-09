@@ -116,6 +116,7 @@ number {from_where}.\n""")
 
 from_where = (move_disk_from())
 
+
 def validate_tower_number_to(num1, num2):
     """
     This function validates if a number was chosen as opposed to a string.
