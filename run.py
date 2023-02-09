@@ -63,3 +63,17 @@ difficult the game.\n""")
     return disks
 
 disks = choose_difficulty()
+
+def draw_disks():
+    print(12*" ", 1*"#") 
+    print(11*" ", 3*"#") 
+    print(10*" ", 5*"#") 
+    print(8*" ", 9*"#") 
+    print(6*" ", 13*"#") 
+    print(4*" ", 17*"#") 
+    print(2*" ", 21*"#")
+    print(1*" ", 23*"#", 1*" ", 23*"#", 1*" ", 23*"#")
+    print(80*"_")
+
+
+draw_disks()
