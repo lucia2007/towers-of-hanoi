@@ -115,3 +115,28 @@ number {from_where}.\n""")
 
 
 from_where = (move_disk_from())
+
+def validate_tower_number_to(num1, num2):
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It checks - NOT YET - if the tower is not empty
+    It checks if the user didn't choose the same tower
+    """
+    try:
+        num1 = int(num1)
+        num2 = int(num2)
+        if num1 >= 1 and num1 <= 3:
+            if num1 != num2:
+                print("Input is valid.")
+            else:
+                print("You can not choose the same tower.")
+                return False
+        else:
+            print("You didn't choose a number between 1 and 3. Try again.")
+            return False
+    except ValueError as error:
+        print(f"Invalid data: {error}. You did not choose a number.")
+        return False
+    return True
+
