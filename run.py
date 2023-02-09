@@ -43,3 +43,23 @@ def validate_number(num):
         print(f"Invalid data: {error}. You did not choose a number.")
         return False
     return True
+
+def choose_difficulty():
+    """
+    The user chooses the level of difficulty. The higher the number, the more 
+    difficult the game. The input is validated.
+    The function returns the number of disks the user wants to use.
+    """
+    print("""How many disks do you want to play with? The more disks, the more 
+difficult the game.\n""")
+
+    while True:
+        disks = input("""Choose a number between 3 and 9.\n""")
+
+        if validate_number(disks):
+            print(f"The chosen number of disks is {disks}.")
+            break
+
+    return disks
+
+disks = choose_difficulty()
