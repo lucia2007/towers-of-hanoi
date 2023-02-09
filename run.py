@@ -77,3 +77,22 @@ def draw_disks():
 
 
 draw_disks()
+
+def validate_tower_number(num):
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It checks - !in the future! - if the tower is not empty
+    """
+    try:
+        num = int(num)
+        if num >= 1 and num <= 3:
+            print("Input is valid.")
+        else:
+            print("You didn't choose a number between 1 and 3. Try again.\n")
+            return False
+    except ValueError as error:
+        print(f"Invalid data: {error}. You did not choose a number.")
+        return False
+    return True
+
