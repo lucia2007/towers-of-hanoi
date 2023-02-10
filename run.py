@@ -1,6 +1,9 @@
 """Tower of Hanoi"""
 
+
 # Rules taken from Wikipedia
+
+
 def welcome():
     """
     This function welcomes the user and explains the rules.
@@ -27,6 +30,7 @@ Good luck!\n""")
 
 welcome()
 
+
 def validate_number(num):
     """
     This function validates if a number was chosen as opposed to a string.
@@ -43,6 +47,7 @@ def validate_number(num):
         print(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     return True
+
 
 def choose_difficulty():
     """
@@ -61,6 +66,7 @@ difficult the game.\n""")
             break
 
     return disks
+
 
 disks = choose_difficulty()
 
