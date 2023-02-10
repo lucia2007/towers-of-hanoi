@@ -34,14 +34,14 @@ welcome()
 def validate_number(num):
     """
     This function validates if a number was chosen as opposed to a string.
-    It checks if the number is between 3 and 8.
+    It checks if the number is between 3 and 6.
     """
     try:
         num = int(num)
-        if num >= 3 and num <= 8:
+        if num >= 3 and num <= 6:
             print("Input is valid.")
         else:
-            print("You didn't choose a number between 3 and 8. Try again.\n")
+            print("You didn't choose a number between 3 and 6. Try again.\n")
             return False
     except ValueError as error:
         print(f"Invalid data: {error}. You did not choose a number.\n")
@@ -59,7 +59,7 @@ def choose_difficulty():
 difficult the game.\n""")
 
     while True:
-        disks = input("""Choose a number between 3 and 8.\n""")
+        disks = input("""Choose a number between 3 and 6.\n""")
 
         if validate_number(disks):
             print(f"The chosen number of disks is {disks}.")
