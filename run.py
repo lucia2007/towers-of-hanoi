@@ -62,7 +62,7 @@ difficult the game.\n""")
         disks = input("""Choose a number between 3 and 6.\n""")
 
         if validate_number(disks):
-            print(f"The chosen number of disks is {disks}.")
+            print(f"The chosen number of disks is {disks}.\n")
             break
 
     return disks
@@ -70,16 +70,24 @@ difficult the game.\n""")
 
 disks = choose_difficulty()
 
-def draw_disks():
-    print(12*" ", 1*"#") 
-    print(11*" ", 3*"#") 
-    print(10*" ", 5*"#") 
-    print(8*" ", 9*"#") 
-    print(6*" ", 13*"#") 
-    print(4*" ", 17*"#") 
-    print(2*" ", 21*"#")
-    print(1*" ", 23*"#", 1*" ", 23*"#", 1*" ", 23*"#")
-    print(79*"_", " \n")
+PLATFORM = int(23)
+DISK1LEN = int(23)
+DISK2LEN = int(19)
+DISK3LEN = int(15)
+DISK4LEN = int(11)
+DISK5LEN = int(7)
+DISK6LEN = int(3)
+
+DISK1 = (round((PLATFORM - DISK1LEN)/2)+1)*" " + DISK1LEN*"#" + (round((PLATFORM - DISK2LEN)/2)+1)*" "
+DISK2 = (round((PLATFORM - DISK2LEN)/2)+1)*" " + DISK2LEN*"#" + (round((PLATFORM - DISK2LEN)/2)+1)*" "
+DISK3 = (round((PLATFORM - DISK3LEN)/2)+1)*" " + DISK3LEN*"#" + (round((PLATFORM - DISK3LEN)/2)+1)*" "
+DISK4 = (round((PLATFORM - DISK4LEN)/2)+1)*" " + DISK4LEN*"#" + (round((PLATFORM - DISK4LEN)/2)+1)*" "
+DISK5 = (round((PLATFORM - DISK5LEN)/2)+1)*" " + DISK5LEN*"#" + (round((PLATFORM - DISK5LEN)/2)+1)*" "
+DISK6 = (round((PLATFORM - DISK6LEN)/2)+1)*" " + DISK6LEN*"#" + (round((PLATFORM - DISK6LEN)/2)+1)*" "
+
+
+LISTOFDISKS = [DISK6*3, DISK5*3, DISK4*3, DISK3*3, DISK2*3, DISK1*3]
+
 
 
 draw_disks()
