@@ -88,9 +88,30 @@ DISK6 = (round((PLATFORM - DISK6LEN)/2)+1)*" " + DISK6LEN*"#" + (round((PLATFORM
 
 LISTOFDISKS = [DISK6*3, DISK5*3, DISK4*3, DISK3*3, DISK2*3, DISK1*3]
 
+# class Pyradmids():
+#     """
+#     This class will be used for drawing and redrawing the number of disks.
+#     """
 
 
-draw_disks()
+def draw_disks(num):
+    """
+    Draw.
+    """
+    for disk in LISTOFDISKS:
+        print(disk)
+    # print((round((PLATFORM - DISK6LEN)/2)+1)*" ", DISK6LEN*"#", (round((PLATFORM - DISK6LEN)/2)+1)*" ")
+    # print((round((PLATFORM - DISK5LEN)/2)+1)*" ", DISK5LEN*"#", (round((PLATFORM - DISK5LEN)/2)+1)*" ")
+    # print((round((PLATFORM - DISK4LEN)/2)+1)*" ", DISK4LEN*"#", (round((PLATFORM - DISK4LEN)/2)+1)*" ")
+    # print((round((PLATFORM - DISK3LEN)/2)+1)*" ", DISK3LEN*"#", (round((PLATFORM - DISK3LEN)/2)+1)*" ")
+    # print((round((PLATFORM - DISK2LEN)/2)+1)*" ", DISK2LEN*"#", (round((PLATFORM - DISK2LEN)/2)+1)*" ")
+    # print((round((PLATFORM - DISK1LEN)/2)+1)*" ", DISK1LEN*"#", (round((PLATFORM - DISK2LEN)/2)+1)*" ")
+    print(1*" " + PLATFORM*"=" + 1*" " + PLATFORM*"=" + 1*" " + PLATFORM*"=")
+    print(79*"-", " \n")
+
+
+draw_disks(disks)
+
 
 def validate_tower_number(num):
     """
@@ -175,4 +196,3 @@ def move_disk_to():
 
 
 to_where = move_disk_to()
-
