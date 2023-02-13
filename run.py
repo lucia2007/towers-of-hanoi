@@ -91,9 +91,9 @@ class Pyramids:
         Draws the pyramid.
         """
         # 1st pyramid
-        for i in range(self.height):
+        for i in self.list_of_disks:
             disk = (10-2*i)*" " + (4*i + 3) * \
-                "#" + (10-2*i)*" "
+                str(i) + (10-2*i)*" "
             print(disk)
 
 
