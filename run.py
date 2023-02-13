@@ -96,6 +96,13 @@ class Pyramids:
                 str(i) + (10-2*i)*" "
             print(disk)
 
+    def removes_top_disk(self) -> int:
+        """
+        Removes the uppermost disk.
+        """
+        return self.list_of_disks.pop(0)
+
+
 
 def print_bases():
     """
