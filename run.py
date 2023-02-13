@@ -81,7 +81,10 @@ class Pyramids:
     """
 
     def __init__(self, height: int) -> None:
-        self.height = height
+
+        # This makes a list of number from 0 to height -1
+        # https://pythonexamples.org/python-convert-range-into-a-list/
+        self.list_of_disks = list(range(height))
 
     def draw(self) -> None:
         """
