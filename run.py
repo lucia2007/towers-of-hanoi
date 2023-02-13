@@ -110,12 +110,17 @@ class Pyramids:
     for disk in disklist:
         print(disk)
 
-    print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")  
+def print_bases():
+    """
+    Prints the pyramid bases.
+    """
+    print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
     print(71*"-", " \n")
 
 
 pyramid = Pyramids(disks)
 pyramid.draw()
+print_bases()
 
 
 # def draw_disks(num):
