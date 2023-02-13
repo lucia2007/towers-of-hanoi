@@ -93,22 +93,6 @@ class Pyramids:
                 "#" + (12-2*i)*" "
             print(disk)
 
-    # 2nd pyramid
-    # for i in range(num):
-    #     disk = ((12-2*(num - i))+24)*" " + ((4*(num - i) - 1))*"#" + ((12-2*(num - i))+23)*" "
-    #     disklist.append(disk)
-    #     # print(disk)
-    # disklist.reverse()
-
-    # 3rd pyramid
-    # for i in range(num):
-    #     disk = ((12-2*(num - i))+48)*" " + ((4*(num - i) - 1))*"#" + ((12-2*(num - i))+47)*" "
-    #     disklist.append(disk)
-    #     # print(disk)
-    # disklist.reverse()
-
-    for disk in disklist:
-        print(disk)
 
 def print_bases():
     """
@@ -121,19 +105,6 @@ def print_bases():
 pyramid = Pyramids(disks)
 pyramid.draw()
 print_bases()
-
-
-# def draw_disks(num):
-#     """
-#     Draw.
-#     """
-#     for disk in LISTOFDISKS:
-#         print(disk)
-#     print(1*" " + BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
-#     print(79*"-", " \n")
-
-
-# draw_disks(disks)
 
 
 def validate_tower_number(num):
