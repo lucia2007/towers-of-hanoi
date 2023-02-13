@@ -105,7 +105,9 @@ def print_bases():
     print(71*"-", " \n")
 
 
-pyramid = Pyramids(disks)
+pyramid = Pyramid(disks)
+pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
+pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
 pyramid.draw()
 print_bases()
 pyramid2.draw()
