@@ -65,7 +65,7 @@ difficult the game.\n""")
             print(f"The chosen number of disks is {disks}.\n")
             break
 
-    return disks
+    return int(disks)
 
 
 disks = choose_difficulty()
