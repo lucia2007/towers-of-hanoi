@@ -1,5 +1,7 @@
 """Tower of Hanoi"""
 
+# https://rich.readthedocs.io/en/latest/console.html#justify-alignment
+# from rich.console import Console
 
 # Rules taken from Wikipedia
 
@@ -11,7 +13,7 @@ def welcome():
     print("""
 Welcome to the Towers of Hanoi!
 
-Your goal is to move the disks from the first stack to the last stack.
+Your goal is to move the disks from the first base to the last base.
 
 Rules:
 
@@ -51,11 +53,11 @@ def validate_number(num):
 
 def choose_difficulty():
     """
-    The user chooses the level of difficulty. The higher the number, the more 
+    The user chooses the level of difficulty. The higher the number, the more
     difficult the game. The input is validated.
     The function returns the number of disks the user wants to use.
     """
-    print("""How many disks do you want to play with? The more disks, the more 
+    print("""How many disks do you want to play with? The more disks, the more
 difficult the game.\n""")
 
     while True:
@@ -71,46 +73,65 @@ difficult the game.\n""")
 disks = choose_difficulty()
 
 BASE = int(23)
-DISK1LEN = int(23)
-DISK2LEN = int(19)
-DISK3LEN = int(15)
-DISK4LEN = int(11)
-DISK5LEN = int(7)
-DISK6LEN = int(3)
-
-DISK1 = (round((BASE - DISK1LEN)/2)+1)*" " + DISK1LEN*"#" + (round((BASE - DISK2LEN)/2)+1)*" "
-DISK2 = (round((BASE - DISK2LEN)/2)+1)*" " + DISK2LEN*"#" + (round((BASE - DISK2LEN)/2)+1)*" "
-DISK3 = (round((BASE - DISK3LEN)/2)+1)*" " + DISK3LEN*"#" + (round((BASE - DISK3LEN)/2)+1)*" "
-DISK4 = (round((BASE - DISK4LEN)/2)+1)*" " + DISK4LEN*"#" + (round((BASE - DISK4LEN)/2)+1)*" "
-DISK5 = (round((BASE - DISK5LEN)/2)+1)*" " + DISK5LEN*"#" + (round((BASE - DISK5LEN)/2)+1)*" "
-DISK6 = (round((BASE - DISK6LEN)/2)+1)*" " + DISK6LEN*"#" + (round((BASE - DISK6LEN)/2)+1)*" "
-
-
-LISTOFDISKS = [DISK6*3, DISK5*3, DISK4*3, DISK3*3, DISK2*3, DISK1*3]
-
-# class Pyradmids():
+# class Pyradmids:
 #     """
 #     This class will be used for drawing and redrawing the number of disks.
 #     """
 
 
-def draw_disks(num):
+def list_of_disks(num):
     """
-    Draw.
+    This function generates a list with the correct number of disks,
+    based on the user's level choice and draws the correct number of disks.
+    The function returns the list of disks.
     """
-    for disk in LISTOFDISKS:
+
+    disklist = []
+    num = int(num)
+
+    # 1st pyramid
+    for i in range(num):
+        disk = (12-2*(num - i))*" " + (4*(num - i) - 1)*"#" + (12-2*(num - i))*" "
+        disklist.append(disk)
+    disklist.reverse()
+
+    # 2nd pyramid
+    # for i in range(num):
+    #     disk = ((12-2*(num - i))+24)*" " + ((4*(num - i) - 1))*"#" + ((12-2*(num - i))+23)*" "
+    #     disklist.append(disk)
+    #     # print(disk)
+    # disklist.reverse()
+
+    # 3rd pyramid
+    # for i in range(num):
+    #     disk = ((12-2*(num - i))+48)*" " + ((4*(num - i) - 1))*"#" + ((12-2*(num - i))+47)*" "
+    #     disklist.append(disk)
+    #     # print(disk)
+    # disklist.reverse()
+
+    for disk in disklist:
         print(disk)
-    # print((round((BASE - DISK6LEN)/2)+1)*" ", DISK6LEN*"#", (round((BASE - DISK6LEN)/2)+1)*" ")
-    # print((round((BASE - DISK5LEN)/2)+1)*" ", DISK5LEN*"#", (round((BASE - DISK5LEN)/2)+1)*" ")
-    # print((round((BASE - DISK4LEN)/2)+1)*" ", DISK4LEN*"#", (round((BASE - DISK4LEN)/2)+1)*" ")
-    # print((round((BASE - DISK3LEN)/2)+1)*" ", DISK3LEN*"#", (round((BASE - DISK3LEN)/2)+1)*" ")
-    # print((round((BASE - DISK2LEN)/2)+1)*" ", DISK2LEN*"#", (round((BASE - DISK2LEN)/2)+1)*" ")
-    # print((round((BASE - DISK1LEN)/2)+1)*" ", DISK1LEN*"#", (round((BASE - DISK2LEN)/2)+1)*" ")
-    print(1*" " + BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
-    print(79*"-", " \n")
+
+    print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")  
+    print(71*"-", " \n")
+
+    return disklist
 
 
-draw_disks(disks)
+list_of_disks(disks)
+
+
+# def draw_disks(num):
+#     """
+#     Draw.
+#     """
+#     for disk in LISTOFDISKS:
+#         print(disk)
+#     print(1*" " + BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
+#     print(79*"-", " \n")
+
+
+# draw_disks(disks)
 
 
 def validate_tower_number(num):
