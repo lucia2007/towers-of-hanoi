@@ -102,6 +102,11 @@ class Pyramids:
         """
         return self.list_of_disks.pop(0)
 
+    def add_top_disk(self, upper):
+        """
+        Adds the uppermost disk to a new stack.
+        """
+        return self.list_of_disks.insert(0, upper)
 
 
 def print_bases():
