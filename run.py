@@ -73,27 +73,25 @@ difficult the game.\n""")
 disks = choose_difficulty()
 
 BASE = int(23)
-# class Pyradmids:
-#     """
-#     This class will be used for drawing and redrawing the number of disks.
-#     """
 
 
-def list_of_disks(num):
+class Pyramids:
     """
-    This function generates a list with the correct number of disks,
-    based on the user's level choice and draws the correct number of disks.
-    The function returns the list of disks.
+    Represents a full pyramid of the given number of disks.
     """
 
-    disklist = []
-    num = int(num)
+    def __init__(self, height: int) -> None:
+        self.height = height
 
-    # 1st pyramid
-    for i in range(num):
-        disk = (12-2*(num - i))*" " + (4*(num - i) - 1)*"#" + (12-2*(num - i))*" "
-        disklist.append(disk)
-    disklist.reverse()
+    def draw(self) -> None:
+        """
+        Draws the pyramid.
+        """
+        # 1st pyramid
+        for i in range(self.height):
+            disk = (12-2*i)*" " + (4*i - 1) * \
+                "#" + (12-2*i)*" "
+            print(disk)
 
     # 2nd pyramid
     # for i in range(num):
@@ -115,10 +113,9 @@ def list_of_disks(num):
     print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")  
     print(71*"-", " \n")
 
-    return disklist
 
-
-list_of_disks(disks)
+pyramid = Pyramids(disks)
+pyramid.draw()
 
 
 # def draw_disks(num):
