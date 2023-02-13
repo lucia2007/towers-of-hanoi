@@ -70,7 +70,7 @@ difficult the game.\n""")
 
 disks = choose_difficulty()
 
-PLATFORM = int(23)
+BASE = int(23)
 DISK1LEN = int(23)
 DISK2LEN = int(19)
 DISK3LEN = int(15)
@@ -78,12 +78,12 @@ DISK4LEN = int(11)
 DISK5LEN = int(7)
 DISK6LEN = int(3)
 
-DISK1 = (round((PLATFORM - DISK1LEN)/2)+1)*" " + DISK1LEN*"#" + (round((PLATFORM - DISK2LEN)/2)+1)*" "
-DISK2 = (round((PLATFORM - DISK2LEN)/2)+1)*" " + DISK2LEN*"#" + (round((PLATFORM - DISK2LEN)/2)+1)*" "
-DISK3 = (round((PLATFORM - DISK3LEN)/2)+1)*" " + DISK3LEN*"#" + (round((PLATFORM - DISK3LEN)/2)+1)*" "
-DISK4 = (round((PLATFORM - DISK4LEN)/2)+1)*" " + DISK4LEN*"#" + (round((PLATFORM - DISK4LEN)/2)+1)*" "
-DISK5 = (round((PLATFORM - DISK5LEN)/2)+1)*" " + DISK5LEN*"#" + (round((PLATFORM - DISK5LEN)/2)+1)*" "
-DISK6 = (round((PLATFORM - DISK6LEN)/2)+1)*" " + DISK6LEN*"#" + (round((PLATFORM - DISK6LEN)/2)+1)*" "
+DISK1 = (round((BASE - DISK1LEN)/2)+1)*" " + DISK1LEN*"#" + (round((BASE - DISK2LEN)/2)+1)*" "
+DISK2 = (round((BASE - DISK2LEN)/2)+1)*" " + DISK2LEN*"#" + (round((BASE - DISK2LEN)/2)+1)*" "
+DISK3 = (round((BASE - DISK3LEN)/2)+1)*" " + DISK3LEN*"#" + (round((BASE - DISK3LEN)/2)+1)*" "
+DISK4 = (round((BASE - DISK4LEN)/2)+1)*" " + DISK4LEN*"#" + (round((BASE - DISK4LEN)/2)+1)*" "
+DISK5 = (round((BASE - DISK5LEN)/2)+1)*" " + DISK5LEN*"#" + (round((BASE - DISK5LEN)/2)+1)*" "
+DISK6 = (round((BASE - DISK6LEN)/2)+1)*" " + DISK6LEN*"#" + (round((BASE - DISK6LEN)/2)+1)*" "
 
 
 LISTOFDISKS = [DISK6*3, DISK5*3, DISK4*3, DISK3*3, DISK2*3, DISK1*3]
@@ -100,13 +100,13 @@ def draw_disks(num):
     """
     for disk in LISTOFDISKS:
         print(disk)
-    # print((round((PLATFORM - DISK6LEN)/2)+1)*" ", DISK6LEN*"#", (round((PLATFORM - DISK6LEN)/2)+1)*" ")
-    # print((round((PLATFORM - DISK5LEN)/2)+1)*" ", DISK5LEN*"#", (round((PLATFORM - DISK5LEN)/2)+1)*" ")
-    # print((round((PLATFORM - DISK4LEN)/2)+1)*" ", DISK4LEN*"#", (round((PLATFORM - DISK4LEN)/2)+1)*" ")
-    # print((round((PLATFORM - DISK3LEN)/2)+1)*" ", DISK3LEN*"#", (round((PLATFORM - DISK3LEN)/2)+1)*" ")
-    # print((round((PLATFORM - DISK2LEN)/2)+1)*" ", DISK2LEN*"#", (round((PLATFORM - DISK2LEN)/2)+1)*" ")
-    # print((round((PLATFORM - DISK1LEN)/2)+1)*" ", DISK1LEN*"#", (round((PLATFORM - DISK2LEN)/2)+1)*" ")
-    print(1*" " + PLATFORM*"=" + 1*" " + PLATFORM*"=" + 1*" " + PLATFORM*"=")
+    # print((round((BASE - DISK6LEN)/2)+1)*" ", DISK6LEN*"#", (round((BASE - DISK6LEN)/2)+1)*" ")
+    # print((round((BASE - DISK5LEN)/2)+1)*" ", DISK5LEN*"#", (round((BASE - DISK5LEN)/2)+1)*" ")
+    # print((round((BASE - DISK4LEN)/2)+1)*" ", DISK4LEN*"#", (round((BASE - DISK4LEN)/2)+1)*" ")
+    # print((round((BASE - DISK3LEN)/2)+1)*" ", DISK3LEN*"#", (round((BASE - DISK3LEN)/2)+1)*" ")
+    # print((round((BASE - DISK2LEN)/2)+1)*" ", DISK2LEN*"#", (round((BASE - DISK2LEN)/2)+1)*" ")
+    # print((round((BASE - DISK1LEN)/2)+1)*" ", DISK1LEN*"#", (round((BASE - DISK2LEN)/2)+1)*" ")
+    print(1*" " + BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
     print(79*"-", " \n")
 
 
