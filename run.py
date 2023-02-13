@@ -89,8 +89,8 @@ class Pyramids:
         """
         # 1st pyramid
         for i in range(self.height):
-            disk = (12-2*i)*" " + (4*i - 1) * \
-                "#" + (12-2*i)*" "
+            disk = (10-2*i)*" " + (4*i + 3) * \
+                "#" + (10-2*i)*" "
             print(disk)
 
 
