@@ -75,7 +75,7 @@ disks = choose_difficulty()
 BASE = int(23)
 
 
-class Pyramids:
+class Pyramid:
     """
     Represents a full pyramid of the given number of disks.
     """
@@ -95,6 +95,7 @@ class Pyramids:
             disk = (10-2*i)*" " + (4*i + 3) * \
                 str(i) + (10-2*i)*" "
             print(disk)
+        print(BASE*"=")
 
     def removes_top_disk(self) -> int:
         """
@@ -113,7 +114,7 @@ def print_bases():
     """
     Prints the pyramid bases.
     """
-    print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
+    # print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
     print(71*"-", " \n")
 
 
@@ -122,6 +123,14 @@ pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
 pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
 pyramid.draw()
 print_bases()
+top_disk = pyramid.removes_top_disk()
+pyramid.draw()
+# print(top_disk)
+pyramid2.add_top_disk(top_disk)
+pyramid2.draw()
+top_disk = pyramid.removes_top_disk()
+pyramid2.add_top_disk(top_disk)
+pyramid.draw()
 pyramid2.draw()
 # def validate_tower_number(num):
 #     """
