@@ -92,15 +92,24 @@ class Pyramid:
     def remove_top_disk(self) -> int:
         """
         Removes the uppermost disk.
+        Raises exception when the pyramid is empty.
         """
+        if self.is_empty():
+            raise Exception("Cannot take a disk from an empty pyramid.")
         return self.__list_of_disks.pop(0)
 
-    def add_top_disk(self, upper):
+    def add_top_disk(self, disk):
         """
         Adds the uppermost disk to a new stack.
         NOT YET - only if the new disk is smaller than the previous one.
         """
-        return self.__list_of_disks.insert(0, upper)
+
+        if not self.is_empty():
+            if disk > self.__list_of_disks[0]:
+                raise Exception(
+                    "You may not place a larger disk on a smaller one.")
+            return self.__list_of_disks.insert(0, disk)
+        return self.__list_of_disks.insert(0, disk)
 
     def get_top_disk(self) -> int:
         """
