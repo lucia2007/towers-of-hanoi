@@ -89,7 +89,7 @@ class Pyramid:
             print(disk)
         print(BASE*"=")
 
-    def removes_top_disk(self) -> int:
+    def remove_top_disk(self) -> int:
         """
         Removes the uppermost disk.
         """
@@ -98,6 +98,7 @@ class Pyramid:
     def add_top_disk(self, upper):
         """
         Adds the uppermost disk to a new stack.
+        NOT YET - only if the new disk is smaller than the previous one.
         """
         return self.__list_of_disks.insert(0, upper)
 
@@ -150,33 +151,25 @@ welcome()
 disks = choose_difficulty()
 pyramid = Pyramid(disks)
 BASE = int(23)
+pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
+pyramids[0].draw()
 
 # from_where = (move_disk_from())
 
 
-# def validate_tower_number_to(num1, num2):
-#     """
-#     This function validates if a number was chosen as opposed to a string.
-#     It checks if the number is between 1 and 3.
-#     It checks - NOT YET - if the tower is not empty
-#     It checks if the user didn't choose the same tower
-#     """
-#     try:
-#         num1 = int(num1)
-#         num2 = int(num2)
-#         if num1 >= 1 and num1 <= 3:
-#             if num1 != num2:
-#                 print("Input is valid.")
-#             else:
-#                 print("You can not choose the same tower.")
-#                 return False
-#         else:
-#             print("You didn't choose a number between 1 and 3. Try again.")
-#             return False
-#     except ValueError as error:
-#         print(f"Invalid data: {error}. You did not choose a number.")
-#         return False
-#     return True
+# pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
+# pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
+print_bases()
+top_disk = pyramids[from_where - 1].remove_top_disk()
+# last_disk = pyramids[to_where - 1].__list_of_disks[0]
+pyramids[from_where - 1].draw()
+# print(top_disk)
+pyramids[to_where-1].add_top_disk(top_disk)
+pyramids[to_where-1].draw()
+top_disk = pyramids[from_where - 1].remove_top_disk()
+pyramids[to_where - 1].add_top_disk(top_disk)
+pyramids[from_where-1].draw()
+pyramids[to_where - 1].draw()
 
 
 # def move_disk_to():
