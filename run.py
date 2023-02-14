@@ -217,18 +217,19 @@ def move_disk_to(src: int) -> int:
 welcome()
 BASE = int(23)
 disks = choose_difficulty()
-pyramid = Pyramid(disks)
 pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
 pyramids[0].draw()
-from_where = move_disk_from()
-to_where = move_disk_to(from_where)
-top_disk = pyramids[from_where - 1].remove_top_disk()
-pyramids[from_where - 1].draw()
-pyramids[to_where-1].add_top_disk(top_disk)
-pyramids[to_where-1].draw()
-top_disk = pyramids[from_where - 1].remove_top_disk()
-pyramids[to_where - 1].add_top_disk(top_disk)
-pyramids[from_where-1].draw()
-pyramids[to_where - 1].draw()
+moves = 0
+while True:
+    from_where = move_disk_from()
+    to_where = move_disk_to(from_where)
+    top_disk = pyramids[from_where - 1].remove_top_disk()
+    # for pyramid in pyramids:
+    #     pyramid.draw()
+    pyramids[to_where-1].add_top_disk(top_disk)
+    for pyramid in pyramids:
+        pyramid.draw()
+    moves = +1
+
 
 
