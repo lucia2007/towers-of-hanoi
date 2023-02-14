@@ -30,9 +30,6 @@ How to play:
 Good luck!\n""")
 
 
-welcome()
-
-
 def validate_number(num):
     """
     This function validates if a number was chosen as opposed to a string.
@@ -70,11 +67,6 @@ difficult the game.\n""")
     return int(disks)
 
 
-disks = choose_difficulty()
-
-BASE = int(23)
-
-
 class Pyramid:
     """
     Represents a full pyramid of the given number of disks.
@@ -107,7 +99,7 @@ class Pyramid:
         """
         Adds the uppermost disk to a new stack.
         """
-        return self.list_of_disks.insert(0, upper)
+        return self.list_of_disks.insert(1, upper)
 
 
 def print_bases():
@@ -151,22 +143,12 @@ pyramid2.draw()
 #     return True
 
 
-# def move_disk_from():
-#     """
-#     This function validates if a number was chosen as opposed to a string.
-#     It checks if the number is between 1 and 3.
-#     It validates - NOT YET - if there is no disk smaller than the chosen one
-#     """
-#     print("Choose the tower from which you want to move the uppermost disk.")
-#     while True:
-#         from_where = input("Choose number 1, 2 or 3.\n")
-#         if validate_tower_number(from_where):
-#             print(f"""You are moving the uppermost disk from tower
-# number {from_where}.\n""")
-#             break
 
-#     return from_where
+welcome()
 
+disks = choose_difficulty()
+pyramid = Pyramid(disks)
+BASE = int(23)
 
 # from_where = (move_disk_from())
 
