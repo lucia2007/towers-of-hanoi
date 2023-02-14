@@ -98,18 +98,23 @@ class Pyramid:
             raise Exception("Cannot take a disk from an empty pyramid.")
         return self.__list_of_disks.pop(0)
 
-    def add_top_disk(self, disk):
+    def can_place_disk(self, disk: int) -> bool:
+        if self.is_empty():
+            return True
+        if disk > self.__list_of_disks[0]:
+            return False
+        return True
+
+    def add_top_disk(self, disk: int) -> None:
         """
         Adds the uppermost disk to a new stack.
         NOT YET - only if the new disk is smaller than the previous one.
         """
 
-        if not self.is_empty():
-            if disk > self.__list_of_disks[0]:
-                raise Exception(
-                    "You may not place a larger disk on a smaller one.")
-            return self.__list_of_disks.insert(0, disk)
-        return self.__list_of_disks.insert(0, disk)
+        if not self.can_place_disk(disk):
+            raise Exception(
+                "You may not place a larger disk on a smaller one.")
+        self.__list_of_disks.insert(0, disk)
 
     def get_top_disk(self) -> int:
         """
@@ -186,12 +191,7 @@ def validate_tower_number_to(dst: int, src: int) -> bool:
         print("You can not choose the same tower.")
         return False
 
-    if pyramids[dst - 1].is_empty():
-        print("You can move the disk.")
-        return True
-
-    if (pyramids[src - 1].get_top_disk()
-            < pyramids[dst - 1].get_top_disk()):
+    if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         print("You can move the disk.")
         return True
 
