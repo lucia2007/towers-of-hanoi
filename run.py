@@ -76,14 +76,14 @@ class Pyramid:
 
         # This makes a list of number from 0 to height -1
         # https://pythonexamples.org/python-convert-range-into-a-list/
-        self.list_of_disks = list(range(height))
+        self.__list_of_disks = list(range(height))
 
     def draw(self) -> None:
         """
         Draws the pyramid.
         """
         # 1st pyramid
-        for i in self.list_of_disks:
+        for i in self.__list_of_disks:
             disk = (10-2*i)*" " + (4*i + 3) * \
                 str(i) + (10-2*i)*" "
             print(disk)
@@ -93,13 +93,14 @@ class Pyramid:
         """
         Removes the uppermost disk.
         """
-        return self.list_of_disks.pop(0)
+        return self.__list_of_disks.pop(0)
 
     def add_top_disk(self, upper):
         """
         Adds the uppermost disk to a new stack.
         """
-        return self.list_of_disks.insert(1, upper)
+        return self.__list_of_disks.insert(0, upper)
+
 
 
 def print_bases():
