@@ -102,6 +102,20 @@ class Pyramid:
         """
         return self.__list_of_disks.insert(0, upper)
 
+    def get_top_disk(self) -> int:
+        """
+        Gets the top disk of a pyramid.
+        """
+        return self.__list_of_disks[0]
+
+    def is_empty(self) -> bool:
+        """
+        Tells if the pyramid is empty.
+        """
+        if len(self.__list_of_disks) == 0:
+            return True
+        else:
+            return False
 
 
 def print_bases():
@@ -111,6 +125,69 @@ def print_bases():
     # print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
     print(71*"-", " \n")
 
+
+def validate_tower_number_from(num):
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It checks - !in the future! - if the tower is not empty
+    """
+    try:
+        num = int(num)
+        if num >= 1 and num <= 3:
+            print("Input is valid.")
+        else:
+            print("You didn't choose a number between 1 and 3. Try again.\n")
+            return False
+    except ValueError as error:
+        print(f"Invalid data: {error}. You did not choose a number.")
+        return False
+    return True
+
+
+def move_disk_from() -> int:
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It validates - NOT YET - if there is no disk smaller than the chosen one
+    """
+    print("Choose the tower from which you want to move the uppermost disk.")
+    while True:
+        src = input("Choose number 1, 2 or 3.\n")
+        if validate_tower_number_from(src):
+            print(f"""You are moving the uppermost disk from tower
+number {src}.\n""")
+            break
+
+    return int(src)
+
+
+def validate_tower_number_to(dst: int, src: int) -> bool:
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It checks - NOT YET - if the uppermost disk is not bigger than the disk on the chosen stack.
+    It checks if the user didn't choose the same tower.
+    """
+    if not (dst >= 1 and dst <= 3):
+        print("You didn't choose a number between 1 and 3. Try again.")
+        return False
+
+    if dst == src:
+        print("You can not choose the same tower.")
+        return False
+
+    if pyramids[dst - 1].is_empty():
+        print("You can move the disk.")
+        return True
+
+    if (pyramids[src - 1].get_top_disk()
+            < pyramids[dst - 1].get_top_disk()):
+        print("You can move the disk.")
+        return True
+
+    print("You can't place a bigger disk on a smaller one.")
+    return False
 
 
 def move_disk_to(src: int) -> int:
