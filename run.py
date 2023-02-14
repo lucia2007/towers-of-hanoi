@@ -164,13 +164,13 @@ def move_disk_from() -> int:
     """
     print("Choose the tower from which you want to move the uppermost disk.")
     while True:
-        src = input("Choose number 1, 2 or 3.\n")
+        src = int(input("Choose number 1, 2 or 3.\n"))
         if validate_tower_number_from(src):
             print(f"""You are moving the uppermost disk from tower
 number {src}.\n""")
             break
 
-    return int(src)
+    return src
 
 
 def validate_tower_number_to(dst: int, src: int) -> bool:
