@@ -112,38 +112,23 @@ def print_bases():
     print(71*"-", " \n")
 
 
-pyramid = Pyramid(disks)
-pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
-pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
-pyramid.draw()
-print_bases()
-top_disk = pyramid.removes_top_disk()
-pyramid.draw()
-# print(top_disk)
-pyramid2.add_top_disk(top_disk)
-pyramid2.draw()
-top_disk = pyramid.removes_top_disk()
-pyramid2.add_top_disk(top_disk)
-pyramid.draw()
-pyramid2.draw()
-# def validate_tower_number(num):
-#     """
-#     This function validates if a number was chosen as opposed to a string.
-#     It checks if the number is between 1 and 3.
-#     It checks - !in the future! - if the tower is not empty
-#     """
-#     try:
-#         num = int(num)
-#         if num >= 1 and num <= 3:
-#             print("Input is valid.")
-#         else:
-#             print("You didn't choose a number between 1 and 3. Try again.\n")
-#             return False
-#     except ValueError as error:
-#         print(f"Invalid data: {error}. You did not choose a number.")
-#         return False
-#     return True
 
+def move_disk_to(src: int) -> int:
+    """
+    This function validates if a number was chosen as opposed to a string.
+    It checks if the number is between 1 and 3.
+    It validates (NOT YET) if there is no disk smaller than the chosen one
+    It validates if the the user didn't chose the same tower
+    """
+    print("Choose the tower where you want to place the chosen disk.")
+    while True:
+        dst = int(input("Choose number 1, 2 or 3.\n"))
+        if validate_tower_number_to(dst, src):
+            print("You are moving the chosen disk from tower number "
+                  f"{src} to tower number {dst}.")
+            break
+
+    return dst
 
 
 welcome()
@@ -156,6 +141,7 @@ pyramids[0].draw()
 
 # from_where = (move_disk_from())
 
+to_where = move_disk_to(from_where)
 
 # pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
 # pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
