@@ -208,31 +208,22 @@ def move_disk_to(src: int) -> int:
         dst = int(input("Choose number 1, 2 or 3.\n"))
         if validate_tower_number_to(dst, src):
             print("You are moving the chosen disk from tower number "
-                  f"{src} to tower number {dst}.")
+                  f"{src} to tower number {dst}.\n")
             break
 
     return dst
 
 
 welcome()
-
+BASE = int(23)
 disks = choose_difficulty()
 pyramid = Pyramid(disks)
-BASE = int(23)
 pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
 pyramids[0].draw()
-
-# from_where = (move_disk_from())
-
+from_where = move_disk_from()
 to_where = move_disk_to(from_where)
-
-# pyramid2 = Pyramid(0)  # creates an instance of an empty pyramid #2
-# pyramid3 = Pyramid(0)  # creates an instance of an empty pyramid #3
-print_bases()
 top_disk = pyramids[from_where - 1].remove_top_disk()
-# last_disk = pyramids[to_where - 1].__list_of_disks[0]
 pyramids[from_where - 1].draw()
-# print(top_disk)
 pyramids[to_where-1].add_top_disk(top_disk)
 pyramids[to_where-1].draw()
 top_disk = pyramids[from_where - 1].remove_top_disk()
