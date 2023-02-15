@@ -131,6 +131,45 @@ class Pyramid:
         else:
             return False
 
+    def won(self, height: int):
+        """
+        Informs the user about a win.
+        """
+        if len(self.__list_of_disks) == height:
+            print("You won! Congratulations!")
+            if play_again():
+                print("Enjoy your new game. Try to use fewer moves this time.\n")
+            else:
+                print("Good bye. I hope you had fun.")
+                quit()
+
+
+def validate_answer(choice: str) -> bool:
+    """
+    Validates if the user answered "y" or "n".
+    """
+    while True:
+        choice = choice.upper()
+        if choice == "Y" or choice == "N":
+            print("Input is valid.")
+            return True
+        else:
+            print("Invalid answer. You did not choose \"Y\" or \"N\".\n")
+            return False
+
+
+def play_again() -> bool:
+    """
+    Asks the player if he wants to play again.
+    """
+    print("Do you want to play again?\n")
+    while True:
+        play = input("Press \"Y\" to play and \"N\" to quit.\n")
+        if validate_answer(play):
+            if play.upper() == "Y":
+                return True
+            return False
+
 
 def print_bases():
     """
