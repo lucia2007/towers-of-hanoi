@@ -131,17 +131,14 @@ class Pyramid:
         else:
             return False
 
-    def won(self, height: int):
+    def is_pyramid_full(self, height: int) -> bool:
         """
-        Informs the user about a win.
+        Checks is a pyramid has the height equal to the chosen number of disks.
         """
         if len(self.__list_of_disks) == height:
-            print("You won! Congratulations!")
-            if play_again():
-                print("Enjoy your new game. Try to use fewer moves this time.\n")
-            else:
-                print("Good bye. I hope you had fun.")
-                quit()
+            print(f"Congratulations! You won! You used {moves} moves.\n")
+            return True
+        return False
 
 
 def validate_answer(choice: str) -> bool:
@@ -158,11 +155,11 @@ def validate_answer(choice: str) -> bool:
             return False
 
 
-def play_again() -> bool:
+def want_to_play() -> bool:
     """
     Asks the player if he wants to play again.
     """
-    print("Do you want to play again?\n")
+    print("Do you want to play?\n")
     while True:
         play = input("Press \"Y\" to play and \"N\" to quit.\n")
         if validate_answer(play):
@@ -255,20 +252,20 @@ def move_disk_to(src: int) -> int:
 
 welcome()
 BASE = int(23)
-disks = choose_difficulty()
-pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
-pyramids[0].draw()
-moves = 0
-while True:
-    from_where = move_disk_from()
-    to_where = move_disk_to(from_where)
-    top_disk = pyramids[from_where - 1].remove_top_disk()
-    # for pyramid in pyramids:
-    #     pyramid.draw()
-    pyramids[to_where-1].add_top_disk(top_disk)
-    for pyramid in pyramids:
-        pyramid.draw()
-    moves = +1
-
-
+while want_to_play():
+    moves = 0
+    disks = choose_difficulty()
+    pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
+    pyramids[0].draw()
+    while not pyramids[2].is_pyramid_full(disks):
+        from_where = move_disk_from()
+        to_where = move_disk_to(from_where)
+        top_disk = pyramids[from_where - 1].remove_top_disk()
+        # for pyramid in pyramids:
+        #     pyramid.draw()
+        pyramids[to_where-1].add_top_disk(top_disk)
+        moves = +1
+        for pyramid in pyramids:
+            pyramid.draw()
+print("Thank you for playing. Good bye.")
 
