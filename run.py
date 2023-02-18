@@ -30,20 +30,20 @@ How to play:
 Good luck!\n""")
 
 
-def validate_number(num):
+def validate_number(height):
     """
     This function validates if a number was chosen as opposed to a string.
-    It checks if the number is between 3 and 6.
+    It also checks if the number is between 3 and 6.
     """
     try:
-        num = int(num)
-        if num >= 3 and num <= 6:
-            print("Input is valid.")
-        else:
-            print("You didn't choose a number between 3 and 6. Try again.\n")
-            return False
+        height = int(height)
     except ValueError as error:
         print(f"Invalid data: {error}. You did not choose a number.\n")
+        return False
+    if height >= 3 and height <= 6:
+        print("Input is valid.")
+    else:
+        print("You didn't choose a number between 3 and 6. Try again.\n")
         return False
     return True
 
