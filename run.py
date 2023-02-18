@@ -253,18 +253,18 @@ def move_disk_to(src: int) -> int:
     """
     This function validates if a number was chosen as opposed to a string.
     It checks if the number is between 1 and 3.
-    It validates (NOT YET) if there is no disk smaller than the chosen one
+    It validates(NOT YET) if there is no disk smaller than the chosen one
     It validates if the the user didn't chose the same tower
     """
     print("Choose the tower where you want to place the chosen disk.")
     while True:
-        dst = int(input("Choose number 1, 2 or 3.\n"))
+        dst = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_to(dst, src):
             print("You are moving the chosen disk from tower number "
                   f"{src} to tower number {dst}.\n")
             break
 
-    return dst
+    return int(dst)
 
 
 welcome()
