@@ -27,6 +27,9 @@ How to play:
 1. Indicate the stack from which you want to move the uppermost disk.
 2. Indicate the stack on which you want to place the chosen disk.
 
+You may place the disk back on the same tower if it's no possible to place it
+elsewhere.
+
 Good luck!\n""")
 
 
@@ -73,9 +76,10 @@ class Pyramid:
     """
 
     def __init__(self, height: int) -> None:
-
-        # This makes a list of number from 0 to height -1
-        # https://pythonexamples.org/python-convert-range-into-a-list/
+        """
+        This makes a list of numbers from 0 to (height -1).
+        https://pythonexamples.org/python-convert-range-into-a-list/
+        """
         self.__list_of_disks = list(range(height))
 
     def draw(self) -> None:
@@ -87,18 +91,25 @@ class Pyramid:
             disk = (10-2*i)*" " + (4*i + 3) * \
                 str(i) + (10-2*i)*" "
             print(disk)
+
         print(BASE*"=")
 
     def remove_top_disk(self) -> int:
         """
         Removes the uppermost disk.
-        Raises exception when the pyramid is empty.
+        Raises exception if the source pyramid is empty.
         """
         if self.is_empty():
             raise Exception("Cannot take a disk from an empty pyramid.")
         return self.__list_of_disks.pop(0)
 
     def can_place_disk(self, disk: int) -> bool:
+        """
+        Checks if a disk may be placed on a pyramid
+        The destionation pyramid either has to be empty
+        or the top disk must be bigger than the one 
+        which is being moved.
+        """
         if self.is_empty():
             return True
         if disk > self.__list_of_disks[0]:
@@ -110,7 +121,6 @@ class Pyramid:
         Adds the uppermost disk to a new stack.
         NOT YET - only if the new disk is smaller than the previous one.
         """
-
         if not self.can_place_disk(disk):
             raise Exception(
                 "You may not place a larger disk on a smaller one.")
@@ -222,13 +232,11 @@ def validate_tower_number_to(dst: int, src: int) -> bool:
     It checks if the user didn't choose the same tower.
     """
     if not (dst >= 1 and dst <= 3):
-        print("You didn't choose a number between 1 and 3. Try again.")
+        print("You didn't choose a number between 1 and 3. Try again.\n")
         return False
-
-    if dst == src:
-        print("You can not choose the same tower.")
-        return False
-
+    # if dst == src:
+    #     print("You can not choose the same tower.")
+    #     return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         print("You can move the disk.")
         return True
