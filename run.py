@@ -161,7 +161,12 @@ class Pyramid:
         Checks is a pyramid has the height equal to the chosen number of disks.
         """
         if len(self.__list_of_disks) == height:
-            print(f"Congratulations! You won! You used {moves} moves.\n")
+            if moves == 2**height - 1:
+                print(
+                    f"You used minimum number of moves which is {2**height-1}! Well done!")
+            else:
+                print(
+                    f"Congratulations! You won! You used {moves} moves. Minimum number of moves was {2**height -1}.\n")
             return True
         return False
 
