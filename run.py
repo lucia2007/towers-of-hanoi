@@ -224,13 +224,18 @@ def move_disk_from() -> int:
     return int(src)
 
 
-def validate_tower_number_to(dst: int, src: int) -> bool:
+def validate_tower_number_to(dst, src: int) -> bool:
     """
     This function validates if a number was chosen as opposed to a string.
     It checks if the number is between 1 and 3.
-    It checks - NOT YET - if the uppermost disk is not bigger than the disk on the chosen stack.
-    It checks if the user didn't choose the same tower.
+    It checks if the top disk is not bigger than the disk on the chosen stack.
+    The user may choose the same tower in case he needs to return the disk.
     """
+    try:
+        dst = int(dst)
+    except ValueError as error:
+        print(f"Invalid data: {error}. You did not choose a number.\n")
+        return False
     if not (dst >= 1 and dst <= 3):
         print("You didn't choose a number between 1 and 3. Try again.\n")
         return False
@@ -240,7 +245,6 @@ def validate_tower_number_to(dst: int, src: int) -> bool:
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         print("You can move the disk.")
         return True
-
     print("You can't place a bigger disk on a smaller one.")
     return False
 
