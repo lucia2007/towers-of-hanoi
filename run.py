@@ -82,6 +82,15 @@ class Pyramid:
         """
         self.__list_of_disks = list(range(height))
 
+    def is_empty(self) -> bool:
+        """
+        Tells if the pyramid is empty.
+        """
+        if len(self.__list_of_disks) == 0:
+            return True
+        else:
+            return False
+
     def draw(self) -> None:
         """
         Draws the pyramid.
@@ -93,6 +102,21 @@ class Pyramid:
             print(disk)
 
         print(BASE*"=")
+
+    def draw_empty_lines(self):
+        """
+        Draw each pyramid up to height 6.
+        If empty, draw six lines.
+        If not empty, draw (6 - number of disks) lines
+        """
+        if self.is_empty():
+            for i in range(6):
+                print(23*" ")
+        else:
+            i = 0
+            while i < (6 - (len(self.__list_of_disks))):
+                print(23*" ")
+                i += 1
 
     def remove_top_disk(self) -> int:
         """
@@ -131,15 +155,6 @@ class Pyramid:
         Gets the top disk of a pyramid.
         """
         return self.__list_of_disks[0]
-
-    def is_empty(self) -> bool:
-        """
-        Tells if the pyramid is empty.
-        """
-        if len(self.__list_of_disks) == 0:
-            return True
-        else:
-            return False
 
     def is_pyramid_full(self, height: int) -> bool:
         """
@@ -273,16 +288,17 @@ while want_to_play():
     moves = 0
     disks = choose_difficulty()
     pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
-    pyramids[0].draw()
+    # pyramids[0].draw()
+    for pyramid in pyramids:
+        pyramid.draw_empty_lines()
+        pyramid.draw()
     while not pyramids[2].is_pyramid_full(disks):
         from_where = move_disk_from()
         to_where = move_disk_to(from_where)
         top_disk = pyramids[from_where - 1].remove_top_disk()
-        # for pyramid in pyramids:
-        #     pyramid.draw()
         pyramids[to_where-1].add_top_disk(top_disk)
-        moves = +1
+        moves += 1
         for pyramid in pyramids:
+            pyramid.draw_empty_lines()
             pyramid.draw()
-print("Thank you for playing. Good bye.")
-
+print("Good bye.")
