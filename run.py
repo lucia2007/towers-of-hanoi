@@ -91,9 +91,12 @@ class Pyramid:
         else:
             return False
 
-    def draw(self) -> None:
+    def draw_full_pyramid(self):
         """
-        Draws the pyramid.
+        Draw each pyramid up to height 6.
+        If pyramid is empty, draw six empty lines.
+        If not empty, draw (6 - number of disks) empty lines
+        and the respective number of disks.        
         """
         # 1st pyramid
         for i in self.__list_of_disks:
@@ -103,12 +106,6 @@ class Pyramid:
 
         print(BASE*"=")
 
-    def draw_empty_lines(self):
-        """
-        Draw each pyramid up to height 6.
-        If empty, draw six lines.
-        If not empty, draw (6 - number of disks) lines
-        """
         if self.is_empty():
             for i in range(6):
                 print(23*" ")
@@ -117,6 +114,40 @@ class Pyramid:
             while i < (6 - (len(self.__list_of_disks))):
                 print(23*" ")
                 i += 1
+
+        for i in self.__list_of_disks:
+            disk = (10-2*i)*" " + (4*i + 3) * \
+                str(i) + (10-2*i)*" "
+            print(disk)
+
+        print(BASE*"=")
+
+    # def draw(self) -> None:
+    #     """
+    #     Draws the pyramid.
+    #     """
+    #     # 1st pyramid
+    #     for i in self.__list_of_disks:
+    #         disk = (10-2*i)*" " + (4*i + 3) * \
+    #             str(i) + (10-2*i)*" "
+    #         print(disk)
+
+    #     print(BASE*"=")
+
+    # def draw_empty_lines(self):
+    #     """
+    #     Draw each pyramid up to height 6.
+    #     If empty, draw six lines.
+    #     If not empty, draw (6 - number of disks) lines
+    #     """
+    #     if self.is_empty():
+    #         for i in range(6):
+    #             print(23*" ")
+    #     else:
+    #         i = 0
+    #         while i < (6 - (len(self.__list_of_disks))):
+    #             print(23*" ")
+    #             i += 1
 
     def remove_top_disk(self) -> int:
         """
