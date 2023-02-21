@@ -119,7 +119,7 @@ class Pyramid:
             print(23*" ", end=" ")
         else:
             j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
-            disk = (10-2*j)*" " + (4*j + 3) * str(j) + (10-2*j)*" "
+            disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
             print(disk, end=" ")
 
     def remove_top_disk(self) -> int:
@@ -208,7 +208,8 @@ def print_bases():
     """
     Prints the pyramid bases.
     """
-    print(23*"=" + " " + 23*"=" + " " + 23*"=")
+    print(11*"=" + "1" + 11*"=" + " " + 11*"=" +
+          "2" + 11*"=" + " " + 11*"=" + "3" + 11*"=")
     print(71*"-", " \n")
 
 
