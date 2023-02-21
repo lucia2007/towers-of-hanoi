@@ -1,9 +1,27 @@
+
+# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
+import random
+import sys
+import time
+
 """Tower of Hanoi"""
 
 # https://rich.readthedocs.io/en/latest/console.html#justify-alignment
 # from rich.console import Console
 
 # Rules taken from Wikipedia
+
+# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
+
+
+def slow_print(text):
+    """
+    Prints the text slowly, letter by letter.
+    """
+    for word in text + '\n':
+        sys.stdout.write(word)
+        sys.stdout.flush()  # defeat buffering
+        time.sleep(random.random() * 0.1)
 
 
 def welcome():
