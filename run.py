@@ -43,10 +43,10 @@ Rules:
 
 How to play:
 
-1. Indicate the stack from which you want to move the uppermost disk.
-2. Indicate the stack on which you want to place the chosen disk.
+1. Indicate the stack FROM WHICH you want to move the uppermost disk.
+2. Indicate the stack ON WHICH you want to place the chosen disk.
 
-You may place the disk back on the same tower if it's not possible to place it
+*You may place the disk back on the same tower if it's not possible to place it
 elsewhere.
 
 Good luck!\n"""
@@ -241,7 +241,7 @@ def move_disk_from() -> int:
     on the other towers.
     """
     while True:
-        print("Choose the tower from which you want to move the uppermost disk.")
+        print("Choose the tower FROM WHICH you want to move the uppermost disk.")
         src = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_from(src):
             break
@@ -279,7 +279,7 @@ def move_disk_to(src: int) -> int:
     It validates(NOT YET) if there is no disk smaller than the chosen one
     It validates if the the user didn't chose the same tower
     """
-    print("Choose the tower where you want to place the chosen disk.")
+    print("Choose the tower WHERE you want to place the chosen disk.")
     while True:
         dst = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_to(dst, src):
@@ -321,4 +321,4 @@ while want_to_play():
         draw_pyramids()
         print_bases()
         moves += 1
-print("Good bye.")
+print("\nGood bye.")
