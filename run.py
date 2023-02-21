@@ -123,15 +123,13 @@ class Pyramid:
 
         print(self.__list_of_disks)
 
-
-        i = 0
-        while i < (6 - (len(self.__list_of_disks))):
-            print(23*" ")
-            i += 1
-        for i in self.__list_of_disks:
-            disk = (10-2*i)*" " + (4*i + 3) * \
-                str(i) + (10-2*i)*" "
-            print(disk)
+        for i in range(6):
+            if i < 6 - len(self.__list_of_disks):
+                print(23*" ")
+            else:
+                j = self.__list_of_disks[i - (6 - len(self.__list_of_disks))]
+                disk = (10-2*j)*" " + (4*j + 3) * str(j) + (10-2*j)*" "
+                print(disk)
 
         print(BASE*"=")
 
