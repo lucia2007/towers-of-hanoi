@@ -46,7 +46,7 @@ How to play:
 1. Indicate the stack from which you want to move the uppermost disk.
 2. Indicate the stack on which you want to place the chosen disk.
 
-You may place the disk back on the same tower if it's no possible to place it
+You may place the disk back on the same tower if it's not possible to place it
 elsewhere.
 
 Good luck!\n"""
@@ -81,7 +81,7 @@ def choose_difficulty():
 difficult the game.\n""")
 
     while True:
-        sleep(3)
+        sleep(1.5)
         disks = input("""Choose a number between 3 and 6.\n""")
 
         if validate_number(disks):
@@ -244,8 +244,6 @@ def move_disk_from() -> int:
         print("Choose the tower from which you want to move the uppermost disk.")
         src = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_from(src):
-            print(f"""You are moving the uppermost disk from tower
-    number {src}.\n""")
             break
     return int(src)
 
@@ -269,7 +267,6 @@ def validate_tower_number_to(dst, src: int) -> bool:
     #     print("You can not choose the same tower.")
     #     return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
-        print("You can move the disk.")
         return True
     print("You can't place a bigger disk on a smaller one.")
     return False
