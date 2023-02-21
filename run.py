@@ -3,6 +3,8 @@
 import random
 import sys
 import time
+# https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
+from time import sleep
 
 """Tower of Hanoi"""
 
@@ -81,6 +83,7 @@ def choose_difficulty():
 difficult the game.\n""")
 
     while True:
+        sleep(3)
         disks = input("""Choose a number between 3 and 6.\n""")
 
         if validate_number(disks):
@@ -240,11 +243,14 @@ def want_to_play() -> bool:
     """
     Asks the player if he wants to play again.
     """
+    sleep(1)
     print("Do you want to play?\n")
     while True:
+        sleep(1)
         play = input("Press \"Y\" to play and \"N\" to quit.\n")
         if validate_answer(play):
             if play.upper() == "Y":
+                print("\n")
                 return True
             return False
 
