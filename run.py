@@ -13,12 +13,11 @@ from time import sleep
 
 # Rules taken from Wikipedia
 
-# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
-
 
 def slow_print(text):
     """
     Prints the text slowly, letter by letter.
+    https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
     """
     for word in text + '\n':
         sys.stdout.write(word)
@@ -66,7 +65,7 @@ def validate_number(height):
         print(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     if height >= 3 and height <= 6:
-        print("Input is valid.")
+        return True
     else:
         print("You didn't choose a number between 3 and 6. Try again.\n")
         return False
@@ -149,7 +148,7 @@ class Pyramid:
         """
         Checks if a disk may be placed on a pyramid
         The destionation pyramid either has to be empty
-        or the top disk must be bigger than the one 
+        or the top disk must be bigger than the one
         which is being moved.
         """
         if self.is_empty():
@@ -196,7 +195,6 @@ def validate_answer(choice: str) -> bool:
     while True:
         choice = choice.upper()
         if choice == "Y" or choice == "N":
-            print("Input is valid.")
             return True
         else:
             print("Invalid answer. You did not choose \"Y\" or \"N\".\n")
@@ -244,7 +242,6 @@ def validate_tower_number_from(num: int) -> bool:
     if pyramids[num - 1].is_empty():
         print("There is no disk in the chosen pyramid.")
         return False
-    print("Input is valid.")
     return True
 
 
@@ -314,7 +311,6 @@ while want_to_play():
     moves = 0
     disks = choose_difficulty()
     pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
-    # pyramids[0].draw()
     for pyramid in pyramids:
         pyramid.draw_full_pyramid()
     while not pyramids[2].is_pyramid_full(disks):
