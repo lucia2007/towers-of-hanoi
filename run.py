@@ -32,19 +32,19 @@ def welcome():
     welcome_text = """
 Welcome to the Towers of Hanoi!
 
-Your goal is to move the disks from the first base to the last base.
+Your goal is to move all the disks from the first base to the last base.
 
 Rules:
 
-1. Only one disk may be moved at a time.
-2. Each move consists of taking the uppermost disk from one of the stacks
-   and placing it on top of another stack or on an empty rod.
-3. No disk may be placed on top of a disk that is smaller than itself.
+1. You can move only one disk at a time.
+2. You can only move the uppermost disk from one of the bases
+   and place it on top of other disks on a different base or place it on an empty base.
+3. You may not place the chosen disk on top of a smaller disk.
 
 How to play:
 
-1. Indicate the stack FROM WHICH you want to move the uppermost disk.
-2. Indicate the stack ON WHICH you want to place the chosen disk.
+1. Choose the base (# 1, 2, 3) FROM WHICH you want to move the top disk.
+2. Choose the base (# 1, 2, 3) ON WHICH you want to place the chosen disk.
 
 *You may place the disk back on the same tower if it's not possible to place it
 elsewhere.
@@ -82,10 +82,9 @@ difficult the game.\n""")
 
     while True:
         sleep(1.5)
-        disks = input("""Choose a number between 3 and 6.\n""")
+        disks = input("""Choose a number between 3 and 6.\n\n""")
 
         if validate_number(disks):
-            print(f"The chosen number of disks is {disks}.\n")
             break
 
     return int(disks)
@@ -241,7 +240,7 @@ def move_disk_from() -> int:
     on the other towers.
     """
     while True:
-        print("Choose the tower FROM WHICH you want to move the uppermost disk.")
+        print("FROM WHICH?")
         src = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_from(src):
             break
@@ -279,12 +278,12 @@ def move_disk_to(src: int) -> int:
     It validates(NOT YET) if there is no disk smaller than the chosen one
     It validates if the the user didn't chose the same tower
     """
-    print("Choose the tower WHERE you want to place the chosen disk.")
+    print("TO WHERE?")
     while True:
         dst = input("Choose number 1, 2 or 3.\n")
         if validate_tower_number_to(dst, src):
-            print("You are moving the chosen disk from tower number "
-                  f"{src} to tower number {dst}.\n")
+            # print("You are moving the chosen disk from tower number "
+            #       f"{src} to tower number {dst}.\n")
             break
 
     return int(dst)
