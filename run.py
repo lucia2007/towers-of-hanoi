@@ -209,7 +209,7 @@ def print_bases():
     """
     Prints the pyramid bases.
     """
-    # print(BASE*"=" + 1*" " + BASE*"=" + 1*" " + BASE*"=")
+    print(23*"=" + " " + 23*"=" + " " + 23*"=")
     print(71*"-", " \n")
 
 
@@ -293,20 +293,35 @@ def move_disk_to(src: int) -> int:
     return int(dst)
 
 
+def draw_pyramids():
+    """
+    Draws each pyramid up to height 6.
+    Draws pyramids next to each other
+    Add a new line after the third pyramid's row is printed.
+    If pyramid row is empty, draws an empty line.
+    If not empty, draws (6 - number of disks) empty lines
+    and the respective number of disks.
+    """
+    for i in range(6):
+        for pyramid in pyramids:
+            pyramid.draw_pyramid_row(i)
+        print("")
+
+
 welcome()
 BASE = int(23)
 while want_to_play():
     moves = 0
     disks = choose_difficulty()
     pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
-    for pyramid in pyramids:
-        pyramid.draw_full_pyramid()
+    draw_pyramids()
+    print_bases()
     while not pyramids[2].is_pyramid_full(disks):
         from_where = move_disk_from()
         to_where = move_disk_to(from_where)
         top_disk = pyramids[from_where - 1].remove_top_disk()
         pyramids[to_where-1].add_top_disk(top_disk)
+        draw_pyramids()
+        print_bases()
         moves += 1
-        for pyramid in pyramids:
-            pyramid.draw_full_pyramid()
 print("Good bye.")
