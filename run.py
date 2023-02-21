@@ -36,9 +36,8 @@ Your goal is to move all the disks from the first base to the last base.
 
 Rules:
 
-1. You can move only one disk at a time.
-2. You can only move the uppermost disk from one of the bases
-   and place it on top of other disks on a different base or place it on an empty base.
+1. You can only move the top disk from one of the bases.
+2. You can place it on an empty base or on other disks on a different base.
 3. You may not place the chosen disk on top of a smaller disk.
 
 How to play:
