@@ -27,8 +27,9 @@ def slow_print(text):
 def welcome():
     """
     This function welcomes the user and explains the rules.
+    The text is printed slowly.
     """
-    print("""
+    welcome_text = """
 Welcome to the Towers of Hanoi!
 
 Your goal is to move the disks from the first base to the last base.
@@ -48,7 +49,8 @@ How to play:
 You may place the disk back on the same tower if it's no possible to place it
 elsewhere.
 
-Good luck!\n""")
+Good luck!\n"""
+    slow_print(welcome_text)
 
 
 def validate_number(height):
