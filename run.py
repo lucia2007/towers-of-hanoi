@@ -1,4 +1,3 @@
-
 # https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
 import random
 import sys
@@ -113,25 +112,16 @@ class Pyramid:
         else:
             return False
 
-    def draw_full_pyramid(self):
+    def draw_pyramid_row(self, row: int):
         """
-        Draw each pyramid up to height 6.
-        If pyramid is empty, draw six empty lines.
-        If not empty, draw (6 - number of disks) empty lines
-        and the respective number of disks.
+        Draws one row of a pyramid.
         """
-
-        print(self.__list_of_disks)
-
-        for i in range(6):
-            if i < 6 - len(self.__list_of_disks):
-                print(23*" ")
-            else:
-                j = self.__list_of_disks[i - (6 - len(self.__list_of_disks))]
-                disk = (10-2*j)*" " + (4*j + 3) * str(j) + (10-2*j)*" "
-                print(disk)
-
-        print(BASE*"=")
+        if row < 6 - len(self.__list_of_disks):
+            print(23*" ", end="")
+        else:
+            j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
+            disk = (10-2*j)*" " + (4*j + 3) * str(j) + (10-2*j)*" "
+            print(disk, end="")
 
     def remove_top_disk(self) -> int:
         """
