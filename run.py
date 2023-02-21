@@ -117,11 +117,11 @@ class Pyramid:
         Draws one row of a pyramid.
         """
         if row < 6 - len(self.__list_of_disks):
-            print(23*" ", end="")
+            print(23*" ", end=" ")
         else:
             j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
             disk = (10-2*j)*" " + (4*j + 3) * str(j) + (10-2*j)*" "
-            print(disk, end="")
+            print(disk, end=" ")
 
     def remove_top_disk(self) -> int:
         """
