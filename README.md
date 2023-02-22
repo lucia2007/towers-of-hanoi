@@ -23,6 +23,7 @@ You can play the Towers of Hanoi here:
       - [Frequent Visitor](#frequent-visitor)
   - [Creation Process](#creation-process)
     - [Planning](#planning)
+      - [Projects Tool](#projects-tool)
       - [Dependency diagram](#dependency-diagram)
     - [App Structure](#app-structure)
     - [Python Logic](#python-logic)
@@ -101,19 +102,29 @@ Requirements for the game:
   
 [Back to top](#contents) -->
 
+#### Projects Tool
+
+To better plan and to manage the scope of the project, I used the [GitHub's Projects](https://github.com/lucia2007?tab=projects) whic is available from the main menu.
+
+Whenever I had an idea related to the project, I would jot it down in the "To Do" section. Later, I would choose 2, max 3 things that were currently being worked on and I placed them in the "In Progress" section. If I became stuck on a task for whatever reason or depended on external input, I moved it to "blocked". At last, when a task was completed, I would move it to the "Done" section.
+
+This tool has been very benefitial for my development process, especially, because I could rely on having all the information here. I would write down the sources to be credited, or bugs to be fixed or ideas on how to improve some part of the application. 
+
+In the future, for a bigger project, I would focus on a more detailed description of messages and adding next steps or a deadline for each of the items.
 #### Dependency diagram
 
+  This is the original flow chart where I broke the program into managable clear steps. 
+  <!-- add a picture of the flow chart -->
+
 ### App Structure
-The app structure is very simple as it is a CLI application and its dimensions are restricted by the display window of 80 characters per line on max 24 lines.
+The app structure is very simple and uniform as it is a CLI application and its dimensions are restricted by the display window of 80 characters per line on max 24 lines.
 
 ### Python Logic
-  The logic of the game itself is not very difficult: Move the disks from the first base to the last base. The main restriction is that the user may not place a bigger disk on a smaller one. The game can become quite long if the user is just randomly moving the disks and is not trying to use the minimum number of moves.
+  The logic of the game itself is not very difficult: The goal is to move all the disks from the first base to the last base. The main restriction is that the user may not place a bigger disk on a smaller one. The game can become quite long and tedius if the user is just randomly moving the disks and is not trying to optimize the number of moves. On the other hand, it can be quite motivating to try to achieve the minumum number of moves.
 
-  This is the original flow chart where I broke the program into managable clear steps. 
+  I had to frequently manually validate the user input to make sure, that the correct type of input was returned. In case of a number input I had to check if the number was within the required range and if it was a number. For a string, I had to check if the correct string was returned. Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice. I also had to check the logical catches like preventing taking a disk from an empty pyramid, or placing a bigger disk on a smaller one.
 
-  I had to frequently validate the user input to make sure, that the correct type of input was returned (either string or a number). In case of a number input I had to check if the number was within the required range. Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice.
-
-  I used (Object oriented programming) OOP in some parts of the application for better manipulation with the objects.
+  I used (Object oriented programming) OOP in some parts of the application for better manipulation with the objects. This proved helpful especially when moving the disks from one stack to the other, or for drawing the pyramids.
 
 [Back to top](#contents)
 
@@ -132,6 +143,8 @@ I have not altered the type of script, as the original one is well suited for th
 
 # Features
 ### ASCII Art
+
+I choose to use ASCII Art on the welcome page to improve the user experience and to get the user interested.
 
 <!-- ![ACSII Art](./readme-images/header.png) -->
 
@@ -152,6 +165,16 @@ The welcome message and the rules are printed slowly so the user is not overwhel
 
 [Back to top](#contents)
 ### Mechanism of the Game
+A move consists of two steps:
+1. The user has to choose FROM WHICH base they want to take the top disk.
+2. The user has to indicate ON WHICH base they want to place the chosen disk.
+
+There are a few restrictions:
+1. The user may not place the chosen disk on a disk that it smaller than itself.
+2. The user must choose a number within the indicated range.
+3. The user may play with minimum 3 and maximum 6 disks.
+4. The user cannot take a disk from an empty stack/pyramid.
+<!-- 3. The user m -->
 
 [Back to top](#contents)
 ### Scores
@@ -180,7 +203,22 @@ When the user chooses the Play again option, the game is reset to the intial set
 
 [Back to top](#contents)
 
-## Reminders
+# Technologies Used
+- [Github](https://github.com/) - used for hosting the repository
+- [Heroku](https://heroku.com/) - used for deploying the application
+- [Gitpod](https://www.gitpod.io/#get-started) - used for developing the application
+- [LucidChart](https://www.lucidchart.com) - used for creating the flow chart
+
+[Back to top](#contents)
+
+# Python Packages
+
+# Python Libraries
+
+# Testing
+
+For testing the application, I used manual testing and an external validators. Both manual and external testing are a part of a separate testing [file](/TESTING.md).
+
 
 * Your code must be placed in the `run.py` file
 * Your dependencies must be placed in the `requirements.txt` file
@@ -188,7 +226,8 @@ When the user chooses the Play again option, the game is reset to the intial set
 
 ## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Media
+- [Towers of Hanoi illustrative picture](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)
 
 1. `heroku/python`
 2. `heroku/nodejs`
