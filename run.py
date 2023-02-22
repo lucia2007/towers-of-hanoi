@@ -60,8 +60,8 @@ How to play:
 1. Choose the base (# 1, 2, 3) FROM WHICH you want to move the top disk.
 2. Choose the base (# 1, 2, 3) ON WHICH you want to place the chosen disk.
 
-*You may place the disk back on the same tower if it's not possible to place it
-elsewhere.
+Warning: If you take a disk which cannot be placed elsewhere, 
+you must put it back on the same base.
 
 Good luck!\n"""
     slow_print(welcome_text)
@@ -222,9 +222,9 @@ def print_bases():
     """
     Prints the pyramid bases.
     """
-    print(11*"=" + "1" + 11*"=" + " " + 11*"=" +
-          "2" + 11*"=" + " " + 11*"=" + "3" + 11*"=")
-    print(71*"-", " \n")
+    print(11*"-" + "1" + 11*"-" + " " + 11*"-" +
+          "2" + 11*"-" + " " + 11*"-" + "3" + 11*"-" + "\n")
+    # print(71*"-", " \n")
 
 
 def validate_tower_number_from(num: int) -> bool:
@@ -255,7 +255,7 @@ def move_disk_from() -> int:
     on the other towers.
     """
     while True:
-        src = input("FROM BASE NUMBER?\n")
+        src = input("FROM BASE NUMBER:\n")
         if validate_tower_number_from(src):
             break
     return int(src)
@@ -293,7 +293,7 @@ def move_disk_to(src: int) -> int:
     It validates if the the user didn't chose the same tower
     """
     while True:
-        dst = input("TO WHICH BASE NUMBER?\n")
+        dst = input("TO BASE NUMBER:\n")
         if validate_tower_number_to(dst, src):
             # print("You are moving the chosen disk from tower number "
             #       f"{src} to tower number {dst}.\n")
@@ -338,5 +338,5 @@ while True:
     if play_again():
         continue
     else:
-        print("\nGood bye.\n")
+        print("\nThank you for playing. Good bye.\n")
         break
