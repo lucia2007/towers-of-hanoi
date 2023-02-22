@@ -199,12 +199,12 @@ def validate_answer(choice: str) -> bool:
             return False
 
 
-def want_to_play() -> bool:
+def play_again() -> bool:
     """
     Asks the player if he wants to play again.
     """
     sleep(1)
-    print("Do you want to play?\n")
+    print("Do you want to play again?\n")
     while True:
         sleep(1)
         play = input("Press \"Y\" to play and \"N\" to quit.\n")
@@ -318,7 +318,7 @@ def draw_pyramids():
 
 welcome()
 BASE = int(23)
-while want_to_play():
+while True:
     moves = 0
     disks = choose_difficulty()
     pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
@@ -332,4 +332,8 @@ while want_to_play():
         draw_pyramids()
         print_bases()
         moves += 1
-print("\nGood bye.")
+    if play_again():
+        continue
+    else:
+        print("\nGood bye.\n")
+        break
