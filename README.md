@@ -193,11 +193,20 @@ When you create the app, you will need to add two buildpacks from the _Settings_
 1. `heroku/python`
 2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Acknowledgements
+- Extra help and guidance was received from my mentor Precious Ijege, from my husband Sam and fellow colleagues from the Code Institute.
+- My husband Sam encouraged me to use OOP and guided me through it. He also encouraged me to use annotation for functions which helped me during the debugging process.
+- Other sources of inspiration and help:
+https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/
+https://www.geeksforgeeks.org/clear-screen-python/
+https://pythonexamples.org/python-convert-range-into-a-list/
+https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
+https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
+https://www.freecodecamp.org/news/python-do-while-loop-example/
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+Thank you all for your support and encouragement. I couldn't have done it without you.
 
-Connect your GitHub repository and deploy as normal.
+[Back to top](#contents)
 
 ## Constraints
 
