@@ -1,8 +1,113 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Tower of Hanoi
 
-Welcome Lucia Ferencik,
+Towers of Hanoi is a Python command line interface (CLI) application which allows the user to play a well-know game of <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi" target="_blank" rel="noopener">Tower of Hanoi</a>. The user has an option to choose the difficulty level. The easy level can be played in a minute, the more difficult levels will take some time, but will help the user develop and improve their logical thinking. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+This game can be played both by adults and children. In fact, the inspiration for replicating this game for my project came from seeing my daughter enjoy playing this game.
+
+You can play the Towers of Hanoi here:
+[Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/)
+
+
+[Back to top](#contents)
+
+# Contents
+
+- [Tower of Hanoi](#tower-of-hanoi)
+- [Contents](#contents)
+- [User Experience (UX)](#user-experience-ux)
+  - [User Stories](#user-stories)
+    - [Primary Goal](#primary-goal)
+    - [Visitor Goals](#visitor-goals)
+      - [First Time Visitor](#first-time-visitor)
+      - [Returning Visitor](#returning-visitor)
+      - [Frequent Visitor](#frequent-visitor)
+  - [Creation Process](#creation-process)
+    - [Planning](#planning)
+      - [Dependency diagram](#dependency-diagram)
+    - [App Structure](#app-structure)
+    - [Python Logic](#python-logic)
+  - [Design Choices](#design-choices)
+- [Features](#features)
+    - [Welcome message](#welcome-message)
+    - [Scores](#scores)
+    - [Winning message](#winning-message)
+    - [Losing message](#losing-message)
+    - [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Python Packages](#python-packages)
+- [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [External Testing](#external-testing)
+      - [Python Validation](#python-validation)
+- [Deployment](#deployment)
+  - [Project Deployment](#project-deployment)
+  - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
+  - [To create a local clone of a project](#to-create-a-local-clone-of-a-project)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
+
+[Back to top](#contents)
+# User Experience (UX)
+
+## User Stories
+
+### Primary Goal
+
+The primary goal of this CLI application is to provide a simple game for children and adults to help them develop critical logical skills, but at the same time to teach them patience and perseverence, especially when playing the more difficult levels.
+
+### Visitor Goals
+Towers of Hanoi game has been designed to be straightforward, with minimalist design due to using CLI. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The user can choose a level of difficulty and can challenge themselves the beat the minimum number of moves needed.
+
+#### First Time Visitor
+  - A user can find the game rules on the opening screen.
+  - A user can start the game by pressing the Run Program button.
+  - A user can choose the level of difficilty by indicating a number of disks they want to play with.
+  - A user can expect the number of moves to be displayed in the winning modal window.
+  - A user can choose to Play again after they have won or lost, or choose to leave the game.
+  - A user can compare their number of moves with the minimum number of moves needed.
+#### Returning Visitor
+  - A user is familiar with the rules and can start the game by clicking the Run button.
+  - A user can choose the level of difficulty. The more disks they choose, the more difficult the game.
+
+#### Frequent Visitor
+  - A user can try to use the minimum number of moves which in 2**n - 1.
+
+[Back to top](#contents)
+## Creation Process
+
+### Planning
+
+Before I started working on the actual application, I created a flow chart which helped me organize dependencies and provided me with a blueprint to follow when developing the app. This was extremely useful especially in moments, when it was not clear were a certain function or a feature belonged, what the dependencies were or with what should be tackled next. I tried to break each step into a managable bite-size function so the code would be easy to read and understand. I started by figuring out the dimensions of my disks and the number of disks I would be able to use for choosing difficulty levels, then I focused on being able to move the disks from one base to another. At first I was printing the pyramids below each other, but later changed the layout to parallel for better readability. Towards the end of the development process, I started adding some nice-to-have features, like clearning the screen for less messy output or shortening and rephrasing the rules and prompts for better comprehension.
+
+I used Projects tool inbuilt in GitHub to help me track my progress and bugs, but also to jot down any ideas that were relevant for the game development. These ideas were either later applied in the code or dismissed if they did not seem to enhance the user experience or improve the development process.
+
+This time I did not create any wireframes, as the application is rather simple in layout and is mainly intended to be played on the desktop. 
+
+My main goal was for the content to fit within the restricted size of the window. The width of the window also predetermined the highest level of difficulty, as the largest disks needed to fit three times next to each other on the screen of 80 characters.
+
+Requirements for the game:
+  - The game will use simple and clear representation of the towers of Hanoi.
+  - The screen will be cleared periodically, so the user is not overwhelmed or confussed by a large number of print statements.
+  - The user will be able to choose the level of difficulty.
+  - The game will show the scores in the winning modal.
+  - The user will have a choice to play again or stop playing the game.
+  
+[Back to top](#contents) -->
+
+#### Dependency diagram
+
+### App Structure
+The app structure is very simple as it is a CLI application and its dimensions are restricted by the display window of 80 characters per line on max 24 lines.
+
+### Python Logic
+  The logic of the game itself is not very difficult: Move the disks from the first base to the last base. The main restriction is that the user may not place a bigger disk on a smaller one. The game can become quite long if the user is just randomly moving the disks and is not trying to use the minimum number of moves.
+
+  This is the original flow chart where I broke the program into managable clear steps. 
+
+  I had to frequently validate the user input to make sure, that the correct type of input was returned (either string or a number). In case of a number input I had to check if the number was within the required range. Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice.
+
 
 ## Reminders
 
