@@ -252,8 +252,7 @@ def move_disk_from() -> int:
     on the other towers.
     """
     while True:
-        print("FROM WHICH?")
-        src = input("Choose number 1, 2 or 3.\n")
+        src = input("FROM BASE NUMBER?\n")
         if validate_tower_number_from(src):
             break
     return int(src)
@@ -290,9 +289,8 @@ def move_disk_to(src: int) -> int:
     It validates(NOT YET) if there is no disk smaller than the chosen one
     It validates if the the user didn't chose the same tower
     """
-    print("TO WHERE?")
     while True:
-        dst = input("Choose number 1, 2 or 3.\n")
+        dst = input("TO WHICH BASE NUMBER?\n")
         if validate_tower_number_to(dst, src):
             # print("You are moving the chosen disk from tower number "
             #       f"{src} to tower number {dst}.\n")
