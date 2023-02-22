@@ -35,7 +35,7 @@ def slow_print(text):
     for word in text + '\n':
         sys.stdout.write(word)
         sys.stdout.flush()  # defeat buffering
-        time.sleep(random.random() * 0.1)
+        time.sleep(random.random() * 0.05)
 
 
 def welcome():
