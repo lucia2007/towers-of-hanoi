@@ -27,11 +27,16 @@ You can play the Towers of Hanoi here:
     - [App Structure](#app-structure)
     - [Python Logic](#python-logic)
   - [Design Choices](#design-choices)
+    - [Typography](#typography)
+    - [Color Scheme](#color-scheme)
 - [Features](#features)
+    - [ASCII Art](#ascii-art)
     - [Welcome message](#welcome-message)
+    - [Slow Print](#slow-print)
+    - [Difficulty Level](#difficulty-level)
+    - [Mechanism of the Game](#mechanism-of-the-game)
     - [Scores](#scores)
     - [Winning message](#winning-message)
-    - [Losing message](#losing-message)
     - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Python Packages](#python-packages)
@@ -108,6 +113,72 @@ The app structure is very simple as it is a CLI application and its dimensions a
 
   I had to frequently validate the user input to make sure, that the correct type of input was returned (either string or a number). In case of a number input I had to check if the number was within the required range. Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice.
 
+  I used (Object oriented programming) OOP in some parts of the application for better manipulation with the objects.
+
+[Back to top](#contents)
+
+## Design Choices
+
+I have tried to keep the game design very simple and easily legible. I did use ASCII art to make the welcome screen a bit more interesting.
+
+### Typography
+
+I have not altered the type of script, as the original one is well suited for this game. 
+
+### Color Scheme
+<!-- - I have used yellow and red colors to alert the user of a mistake which needs correcting, but otherwise I have kept the interface in black and white. -->
+
+[Back to top](#contents)
+
+# Features
+### ASCII Art
+
+<!-- ![ACSII Art](./readme-images/header.png) -->
+
+I have used the ASCII Art to make the welcome page more interesting.
+
+### Welcome message
+
+<!-- ![Welcome message](./readme-images/welcome_message.png) -->
+
+As soon as the page is loaded, the ASCII Art is displayed and a welcome message is gradually printed out. In the welcome message the rules and a warning are explained. 
+### Slow Print
+
+The welcome message and the rules are printed slowly so the user is not overwhelmed by the long text they would have to read when opening the app. The first few user options are displayed with a slight delay so the user has time to make a choice.
+
+[Back to top](#contents)
+
+### Difficulty Level
+
+[Back to top](#contents)
+### Mechanism of the Game
+
+[Back to top](#contents)
+### Scores
+
+Each time the user moves a disk from one stack/pyramid to another, the number of moves is increased. The moves are displayed when the user has accomplished moving all the disks from the first base to the third base.
+
+[Back to top](#contents)
+
+### Winning message
+
+![The Winning message](./readme-images/congratulations.png)
+When the user manages to move all the disks from the 1st base to the last one, they are informed of successfully finishing the game. 
+
+Within the winning message, the user is informed of the number of moves they used. This number is compared to the minimum number of moves which is 2**n -1. This can motivate the user to decrease the number of moves they use next time, or the user is congratulated on the use of minimum number of moves if that's what they achieved.
+
+At the end, the user gets a choice to play again or to quit the game. 
+
+When the user chooses the Play again option, the game is reset to the intial settings and the user can newly choose the level of difficulty.
+
+[Back to top](#contents)
+
+### Future Features
+- I would like to improve the visualization of the disk being moved for the user to clearly see the moved disk. This is mainly because of a confusing situation when the user is trying to move a disk which is bigger than top disks on the other stacks and thus has to return the disk to its original position.
+
+- In the future, I could also implement the user name usage and score tracking functionality.
+
+[Back to top](#contents)
 
 ## Reminders
 
