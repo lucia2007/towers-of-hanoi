@@ -165,7 +165,8 @@ class Pyramid:
         """
         if not self.can_place_disk(disk):
             raise Exception(
-                "You may not place a larger disk on a smaller one.")
+                """You may not place a larger disk on a smaller one. 
+Choose another base or return it.""")
         self.__list_of_disks.insert(0, disk)
 
     def get_top_disk(self) -> int:
@@ -281,7 +282,8 @@ def validate_tower_number_to(dst, src: int) -> bool:
     #     return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         return True
-    print("You can't place a bigger disk on a smaller one.")
+    print("""You can't place a bigger disk on a smaller one. 
+Choose another base or return it.""")
     return False
 
 
