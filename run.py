@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/clear-screen-python/
+import os
 # https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
 import random
 import sys
@@ -13,6 +15,7 @@ from time import sleep
 # Rules taken from Wikipedia
 
 # https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
+
 
 def print_logo():
     print("""
@@ -308,6 +311,8 @@ def draw_pyramids():
     If not empty, draws (6 - number of disks) empty lines
     and the respective number of disks.
     """
+    os.system("clear")
+
     for i in range(6):
         for pyramid in pyramids:
             pyramid.draw_pyramid_row(i)
