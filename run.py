@@ -12,6 +12,17 @@ from time import sleep
 
 # Rules taken from Wikipedia
 
+# https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
+
+def print_logo():
+    print("""
+ _______                                  __   _    _                   _
+|__   __|                                / _| | |  | |                 (_)
+   | | _____      _____ _ __ ___    ___ | |_  | |__| | __ _ _ __   ___  _ 
+   | |/ _ \ \ /\ / / _ \ '__/ __|  / _ \|  _| |  __  |/ _` | '_ \ / _ \| |
+   | | (_) \ V  V /  __/ |  \__ \ | (_) | |   | |  | | (_| | | | | (_) | |
+   |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n\n""")
+
 
 def slow_print(text):
     """
@@ -29,6 +40,7 @@ def welcome():
     This function welcomes the user and explains the rules.
     The text is printed slowly.
     """
+    print_logo()
     welcome_text = """
 Welcome to the Towers of Hanoi!
 
