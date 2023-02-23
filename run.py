@@ -1,3 +1,4 @@
+"""Tower of Hanoi"""
 # https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.
 from time import sleep
 import time
@@ -9,10 +10,6 @@ colorama.init()
 # https://www.geeksforgeeks.org/clear-screen-python/
 # https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
 # https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
-from time import sleep
-
-"""Tower of Hanoi"""
-
 # https://rich.readthedocs.io/en/latest/console.html#justify-alignment
 # from rich.console import Console
 
@@ -97,7 +94,8 @@ def choose_difficulty():
     """
     sleep(1)
     print("""How many disks do you want to play with? The more disks, the more
-difficult the game.\n""")
+difficult the game.
+""")
 
     while True:
         sleep(1)
@@ -202,14 +200,16 @@ def winning_message(score: int, height: int) -> None:
     with minimum number of moves.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
     """
-    print("""
+    # pylint: disable=anomalous-backslash-in-string
+    print(r"""
 __     __                                 _
 \ \   / /                                | |
  \ \_/ /__  _   _  __      _____  _ __   | |
   \   / _ \| | | | \ \ /\ / / _ \| '_ \  | |
    | | (_) | |_| |  \ V  V / (_) | | | | |_|
-   |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)\n\n""")
-    if moves == 2**height - 1:
+   |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)
+
+""")
         print(
             f"You used minimum number of moves which is {2**height-1}! Well done!\n")
     else:
@@ -269,7 +269,8 @@ def validate_tower_number_from(num: int) -> bool:
         print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[num - 1].is_empty():
-        print_red("There is no disk on the chosen base. Choose a different base.")
+        print_red(
+            "There is no disk on the chosen base. Choose a different base.")
         return False
     return True
 
