@@ -118,7 +118,7 @@ def print_yellow(message: str) -> None:
     """"
     Prints string in yellow.
     """
-    print(colorama.Fore.YELLOW + message + colorama.Fore.RESET, end=" ")
+    print(colorama.Fore.YELLOW + message + colorama.Fore.RESET, end="")
 
 
 class Pyramid:
@@ -147,22 +147,11 @@ class Pyramid:
         Draws one row of a pyramid.
         """
         if row < 6 - len(self.__list_of_disks):
-            print(23*" ", end=" ")
+            print(23*" ", end="")
         else:
             j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
             disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
-            print(disk, end=" ")
-
-    def draw_winning_pyramid_row_in_color(self, row: int) -> None:
-        """
-        Draws one row of a pyramid in color.
-        """
-        if row < 6 - len(self.__list_of_disks):
-            print_yellow(23*" ")
-        else:
-            j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
-            disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
-            print_yellow(disk)
+            print(disk, end="")
 
     def remove_top_disk(self) -> int:
         """
@@ -332,29 +321,15 @@ def draw_pyramids() -> None:
     """
     os.system("clear")
 
+    if pyramids[2].is_pyramid_full(disks):
+        print(colorama.Fore.YELLOW)
     for i in range(6):
         for pyramid in pyramids:
             pyramid.draw_pyramid_row(i)
+            print(" ", end="")
         print("")
-
-
-def draw_winning_pyramid() -> None:
-    """
-    Draws each pyramid up to height 6.
-    Draws pyramids next to each other
-    Add a new line after the third pyramid's row is printed.
-    If pyramid row is empty, draws an empty line.
-    If not empty, draws (6 - number of disks) empty lines
-    and the respective number of disks.
-    """
-    os.system("clear")
-
-    for i in range(6):
-        for j in range(3):
-            if not pyramids[j] == pyramids[2]:
-                pyramids[j].draw_pyramid_row(i)
-        pyramids[j].draw_winning_pyramid_row_in_color(i)
-        print("")
+    if pyramids[2].is_pyramid_full(disks):
+        print(colorama.Fore.RESET)
 
 
 def winning_message(score: int, height: int) -> None:
@@ -373,10 +348,10 @@ __     __                                 _
    |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)
 
 """)
+
     if score == 2**height - 1:
-        print(
-            f"You used minimum number of moves which is {2**height-1}!"
-            " Well done!\n")
+        print(f"You used minimum number of moves which is {2**height-1}!"
+              " Well done!\n")
     else:
         print(
             f"Congratulations! You used {score} moves."
@@ -399,8 +374,6 @@ while True:
         draw_pyramids()
         print_bases()
         moves += 1
-    draw_winning_pyramid()
-    print_bases()
     winning_message(moves, disks)
     if not play_again():
         break
