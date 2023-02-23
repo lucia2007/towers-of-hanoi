@@ -346,6 +346,12 @@ def draw_pyramids() -> None:
         print("")
 
 
+            " Well done!\n")
+    else:
+        print(
+            f"Congratulations! You used {score} moves."
+            f" Minimum number of moves was {2**height -1}.\n")
+
 welcome()
 BASE = int(23)
 while True:
