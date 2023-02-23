@@ -57,8 +57,8 @@ Your goal is to move all the disks from the first base to the last base.
 
 Rules:
 
-1. You can only move the top disk from one of the bases.
-2. You can place it on an empty base or on other disks on a different base.
+1. Move the top disk from one of the bases.
+2. Place it on an empty base or on other disks on a different base.
 3. You may not place the chosen disk on top of a smaller disk.
 
 How to play:
@@ -66,10 +66,8 @@ How to play:
 1. Choose the base (# 1, 2, 3) FROM WHICH you want to move the top disk.
 2. Choose the base (# 1, 2, 3) ON WHICH you want to place the chosen disk.
 
-Warning: If you take a disk which cannot be placed elsewhere,
-you must put it back on the same base.
-
 Good luck!\n"""
+
     slow_print(welcome_text)
 
 
@@ -97,11 +95,12 @@ def choose_difficulty():
     difficult the game. The input is validated.
     The function returns the number of disks the user wants to use.
     """
+    sleep(1)
     print("""How many disks do you want to play with? The more disks, the more
 difficult the game.\n""")
 
     while True:
-        sleep(1.5)
+        sleep(1)
         disks = input("""Choose a number between 3 and 6.\n\n""")
 
         if validate_number(disks):
@@ -124,7 +123,7 @@ class Pyramid:
 
     def __init__(self, height: int) -> None:
         """
-        This makes a list of numbers from 0 to (height -1).
+        This makes a list of numbers from 0 to (height - 1).
         https://pythonexamples.org/python-convert-range-into-a-list/
         """
         self.__list_of_disks = list(range(height))
@@ -253,7 +252,6 @@ def print_bases():
     """
     print(11*"-" + "1" + 11*"-" + " " + 11*"-" +
           "2" + 11*"-" + " " + 11*"-" + "3" + 11*"-" + "\n")
-    # print(71*"-", " \n")
 
 
 def validate_tower_number_from(num: int) -> bool:
