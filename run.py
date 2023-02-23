@@ -78,12 +78,11 @@ def validate_number(height_input: str) -> bool:
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
-    if height >= 3 and height <= 6:
+
+    if 3 <= height <= 6:
         return True
-    else:
-        print_red("You didn't choose a number between 3 and 6. Try again.\n")
-        return False
-    return True
+    print_red("You didn't choose a number between 3 and 6. Try again.\n")
+    return False
 
 
 def choose_difficulty() -> int:
@@ -265,7 +264,7 @@ def validate_tower_number_from(num: int) -> bool:
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
-    if not (num >= 1 and num <= 3):
+    if not (1 <= num <= 3):
         print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[num - 1].is_empty():
@@ -301,7 +300,7 @@ def validate_tower_number_to(dst, src: int) -> bool:
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
-    if not (dst >= 1 and dst <= 3):
+    if not 1 <= dst <= 3:
         print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
@@ -360,8 +359,7 @@ while True:
         print_bases()
         moves += 1
     winning_message(moves, disks)
-    if play_again():
-        continue
-    else:
-        print("\nThank you for playing. Good bye.\n")
+    if not play_again():
         break
+
+print("\nThank you for playing. Good bye.\n")
