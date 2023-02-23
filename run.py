@@ -75,7 +75,7 @@ def validate_number(height_input: str) -> bool:
     It also checks if the number is between 3 and 6.
     """
     try:
-        height = int(height)
+        height = int(height_input)
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
@@ -99,12 +99,12 @@ difficult the game.
 
     while True:
         sleep(1)
-        disks = input("""Choose a number between 3 and 6.\n\n""")
+        num_input = input("Choose a number between 3 and 6.\n\n")
 
-        if validate_number(disks):
+        if validate_number(num_input):
             break
 
-    return int(disks)
+    return int(num_input)
 
 
 def print_red(message: str) -> None:
@@ -210,11 +210,14 @@ __     __                                 _
    |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)
 
 """)
+    if score == 2**height - 1:
         print(
-            f"You used minimum number of moves which is {2**height-1}! Well done!\n")
+            f"You used minimum number of moves which is {2**height-1}!"
+            " Well done!\n")
     else:
         print(
-            f"Congratulations! You used {moves} moves. Minimum number of moves was {2**height -1}.\n")
+            f"Congratulations! You used {score} moves."
+            " Minimum number of moves was {2**height -1}.\n")
 
 
 def validate_answer(choice: str) -> bool:
@@ -254,14 +257,14 @@ def print_bases() -> None:
           "2" + 11*"-" + " " + 11*"-" + "3" + 11*"-" + "\n")
 
 
-def validate_tower_number_from(num: int) -> bool:
+def validate_tower_number_from(num_input: str) -> bool:
     """
     This function validates if a number was chosen as opposed to a string.
     It checks if the number is between 1 and 3.
     It checks if the tower is not empty.
     """
     try:
-        num = int(num)
+        num = int(num_input)
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
