@@ -180,14 +180,29 @@ Choose another base or return it.""")
         Checks is a pyramid has the height equal to the chosen number of disks.
         """
         if len(self.__list_of_disks) == height:
-            if moves == 2**height - 1:
-                print(
-                    f"You used minimum number of moves which is {2**height-1}! Well done!\n")
-            else:
-                print(
-                    f"Congratulations! You won! You used {moves} moves. Minimum number of moves was {2**height -1}.\n")
             return True
         return False
+
+
+def winning_message(score: int, height: int) -> None:
+    """
+    Prints winning message and informs user about number of moves in comparison
+    with minimum number of moves.
+    https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
+    """
+    print("""
+__     __                                 _
+\ \   / /                                | |
+ \ \_/ /__  _   _  __      _____  _ __   | |
+  \   / _ \| | | | \ \ /\ / / _ \| '_ \  | |
+   | | (_) | |_| |  \ V  V / (_) | | | | |_|
+   |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)\n\n""")
+    if moves == 2**height - 1:
+        print(
+            f"You used minimum number of moves which is {2**height-1}! Well done!\n")
+    else:
+        print(
+            f"Congratulations! You used {moves} moves. Minimum number of moves was {2**height -1}.\n")
 
 
 def validate_answer(choice: str) -> bool:
@@ -337,6 +352,7 @@ while True:
         draw_pyramids()
         print_bases()
         moves += 1
+    winning_message(moves, disks)
     if play_again():
         continue
     else:
