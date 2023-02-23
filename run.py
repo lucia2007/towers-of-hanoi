@@ -21,13 +21,14 @@ def print_logo() -> None:
     Prints logo. The ASCII logo was generated using the link below.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
     """
-    print("""
+    print(r"""
  _______                                  __   _    _                   _
 |__   __|                                / _| | |  | |                 (_)
    | | _____      _____ _ __ ___    ___ | |_  | |__| | __ _ _ __   ___  _
    | |/ _ \ \ /\ / / _ \ '__/ __|  / _ \|  _| |  __  |/ _` | '_ \ / _ \| |
    | | (_) \ V  V /  __/ |  \__ \ | (_) | |   | |  | | (_| | | | | (_) | |
-   |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n""")
+   |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|
+""")
 
 
 def slow_print(text) -> None:
@@ -345,7 +346,7 @@ def draw_pyramids() -> None:
 welcome()
 BASE = int(23)
 while True:
-    moves = 0
+    moves = 0  # pylint: disable=invalid-name
     disks = choose_difficulty()
     pyramids = [Pyramid(disks), Pyramid(0), Pyramid(0)]
     draw_pyramids()
