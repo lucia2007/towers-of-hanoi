@@ -109,9 +109,16 @@ difficult the game.
 
 def print_red(message: str) -> None:
     """"
-    Prints text in red.
+    Prints string in red.
     """
     print(colorama.Fore.RED + message + colorama.Fore.RESET)
+
+
+def print_yellow(message: str) -> None:
+    """"
+    Prints string in yellow.
+    """
+    print(colorama.Fore.YELLOW + message + colorama.Fore.RESET, end=" ")
 
 
 class Pyramid:
@@ -145,6 +152,17 @@ class Pyramid:
             j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
             disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
             print(disk, end=" ")
+
+    def draw_winning_pyramid_row_in_color(self, row: int) -> None:
+        """
+        Draws one row of a pyramid in color.
+        """
+        if row < 6 - len(self.__list_of_disks):
+            print_yellow(23*" ")
+        else:
+            j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
+            disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
+            print_yellow(disk)
 
     def remove_top_disk(self) -> int:
         """
@@ -192,32 +210,6 @@ Choose another base or return it.""")
         if len(self.__list_of_disks) == height:
             return True
         return False
-
-
-def winning_message(score: int, height: int) -> None:
-    """
-    Prints winning message and informs user about number of moves in comparison
-    with minimum number of moves.
-    https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
-    """
-    # pylint: disable=anomalous-backslash-in-string
-    print(r"""
-__     __                                 _
-\ \   / /                                | |
- \ \_/ /__  _   _  __      _____  _ __   | |
-  \   / _ \| | | | \ \ /\ / / _ \| '_ \  | |
-   | | (_) | |_| |  \ V  V / (_) | | | | |_|
-   |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)
-
-""")
-    if score == 2**height - 1:
-        print(
-            f"You used minimum number of moves which is {2**height-1}!"
-            " Well done!\n")
-    else:
-        print(
-            f"Congratulations! You used {score} moves."
-            " Minimum number of moves was {2**height -1}.\n")
 
 
 def validate_answer(choice: str) -> bool:
@@ -346,11 +338,50 @@ def draw_pyramids() -> None:
         print("")
 
 
+def draw_winning_pyramid() -> None:
+    """
+    Draws each pyramid up to height 6.
+    Draws pyramids next to each other
+    Add a new line after the third pyramid's row is printed.
+    If pyramid row is empty, draws an empty line.
+    If not empty, draws (6 - number of disks) empty lines
+    and the respective number of disks.
+    """
+    os.system("clear")
+
+    for i in range(6):
+        for j in range(3):
+            if not pyramids[j] == pyramids[2]:
+                pyramids[j].draw_pyramid_row(i)
+        pyramids[j].draw_winning_pyramid_row_in_color(i)
+        print("")
+
+
+def winning_message(score: int, height: int) -> None:
+    """
+    Prints winning message and informs user about number of moves in comparison
+    with minimum number of moves.
+    https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
+    """
+    # pylint: disable=anomalous-backslash-in-string
+    print_yellow(r"""
+__     __                                 _
+\ \   / /                                | |
+ \ \_/ /__  _   _  __      _____  _ __   | |
+  \   / _ \| | | | \ \ /\ / / _ \| '_ \  | |
+   | | (_) | |_| |  \ V  V / (_) | | | | |_|
+   |_|\___/ \__,_|   \_/\_/ \___/|_| |_| (_)
+
+""")
+    if score == 2**height - 1:
+        print(
+            f"You used minimum number of moves which is {2**height-1}!"
             " Well done!\n")
     else:
         print(
             f"Congratulations! You used {score} moves."
             f" Minimum number of moves was {2**height -1}.\n")
+
 
 welcome()
 BASE = int(23)
@@ -368,6 +399,8 @@ while True:
         draw_pyramids()
         print_bases()
         moves += 1
+    draw_winning_pyramid()
+    print_bases()
     winning_message(moves, disks)
     if not play_again():
         break
