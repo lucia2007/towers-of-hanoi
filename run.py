@@ -1,9 +1,13 @@
-# https://www.geeksforgeeks.org/clear-screen-python/
-import os
-# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
-import random
-import sys
+# https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.
+from time import sleep
 import time
+import sys
+import random
+import os
+import colorama
+colorama.init()
+# https://www.geeksforgeeks.org/clear-screen-python/
+# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
 # https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
 from time import sleep
 
@@ -26,7 +30,7 @@ def print_logo():
    | | _____      _____ _ __ ___    ___ | |_  | |__| | __ _ _ __   ___  _
    | |/ _ \ \ /\ / / _ \ '__/ __|  / _ \|  _| |  __  |/ _` | '_ \ / _ \| |
    | | (_) \ V  V /  __/ |  \__ \ | (_) | |   | |  | | (_| | | | | (_) | |
-   |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n\n""")
+   |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n""")
 
 
 def slow_print(text):
@@ -77,12 +81,12 @@ def validate_number(height):
     try:
         height = int(height)
     except ValueError as error:
-        print(f"Invalid data: {error}. You did not choose a number.\n")
+        print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     if height >= 3 and height <= 6:
         return True
     else:
-        print("You didn't choose a number between 3 and 6. Try again.\n")
+        print_red("You didn't choose a number between 3 and 6. Try again.\n")
         return False
     return True
 
@@ -104,6 +108,13 @@ difficult the game.\n""")
             break
 
     return int(disks)
+
+
+def print_red(message: str) -> None:
+    """"
+    Prints text in red.
+    """
+    print(colorama.Fore.RED + message + colorama.Fore.RESET)
 
 
 class Pyramid:
@@ -216,7 +227,7 @@ def validate_answer(choice: str) -> bool:
         if choice == "Y" or choice == "N":
             return True
         else:
-            print("Invalid answer. You did not choose \"Y\" or \"N\".\n")
+            print_red("Invalid answer. You did not choose \"Y\" or \"N\".\n")
             return False
 
 
@@ -254,13 +265,13 @@ def validate_tower_number_from(num: int) -> bool:
     try:
         num = int(num)
     except ValueError as error:
-        print(f"Invalid data: {error}. You did not choose a number.\n")
+        print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     if not (num >= 1 and num <= 3):
-        print("You didn't choose a number between 1 and 3. Try again.\n")
+        print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[num - 1].is_empty():
-        print("There is no disk on the chosen base. Choose a different base.")
+        print_red("There is no disk on the chosen base. Choose a different base.")
         return False
     return True
 
@@ -289,14 +300,14 @@ def validate_tower_number_to(dst, src: int) -> bool:
     try:
         dst = int(dst)
     except ValueError as error:
-        print(f"Invalid data: {error}. You did not choose a number.\n")
+        print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
     if not (dst >= 1 and dst <= 3):
-        print("You didn't choose a number between 1 and 3. Try again.\n")
+        print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         return True
-    print("""You can't place a bigger disk on a smaller one. 
+    print_red("""You can't place a bigger disk on a smaller one.
 Choose another base or return it.""")
     return False
 
