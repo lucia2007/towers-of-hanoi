@@ -2,11 +2,11 @@
 
 ## Code Validation
 
-The [Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/) application was thouroughly tested. Python code was reviewed in the [CI Python Linter](https://pep8ci.herokuapp.com/#). As I was continuously correcting warnings and mistakes using pylint in my GitPod, when I ran the code through the CI Python Linter, there was only one warning about an extra line at the end of the file, which I subsequently deleted. Currently, the run.py file, has no errors.
+The [Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/) application was thouroughly tested. Python code was reviewed in the [CI Python Linter](https://pep8ci.herokuapp.com/#). As I was continuously correcting warnings and mistakes using pylint in my GitPod, when I ran the code through the CI Python Linter, there was only one warning about an extra line at the end of the file, which I subsequently deleted. Currently, the run.py file has no errors.
 
 [CI Python Linter No Errors](/readme-images/python_linter_all_clear.png)
 
-All bugs and warnings encountered during the development process will be described below.
+Bugs and warnings encountered during the development process will be described below.
 
 ## Browser Compatibility
 
@@ -14,10 +14,12 @@ The website was tested on the following browsers: Google Chrome, Safari, Microso
 
 ## Responsiveness Test
 
-I did not perform a responsivness test as this CLI application is intended to be used on desktop only.
+I did not perform a responsivness test as this CLI application is intended to be used on desktop only. Just for illustration purposes, I am including [Am I Responsive Image](readme-images/amiresponsive.png).
 
 ## Fixed Bugs
 ## Unfixed Bugs
+
+## Input Validation
 
 There are no known bugs in the project.
 
