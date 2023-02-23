@@ -16,7 +16,7 @@ colorama.init()
 # Rules taken from Wikipedia
 
 
-def print_logo():
+def print_logo() -> None:
     """
     Prints logo. The ASCII logo was generated using the link below.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
@@ -30,7 +30,7 @@ def print_logo():
    |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n""")
 
 
-def slow_print(text):
+def slow_print(text) -> None:
     """
     Prints the text slowly, letter by letter.
     https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
@@ -41,7 +41,7 @@ def slow_print(text):
         time.sleep(random.random() * 0.05)
 
 
-def welcome():
+def welcome() -> None:
     """
     This function welcomes the user and explains the rules.
     The text is printed slowly.
@@ -68,7 +68,7 @@ Good luck!\n"""
     slow_print(welcome_text)
 
 
-def validate_number(height):
+def validate_number(height_input: str) -> bool:
     """
     This function validates if a number was chosen as opposed to a string.
     It also checks if the number is between 3 and 6.
@@ -86,7 +86,7 @@ def validate_number(height):
     return True
 
 
-def choose_difficulty():
+def choose_difficulty() -> int:
     """
     The user chooses the level of difficulty. The higher the number, the more
     difficult the game. The input is validated.
@@ -135,7 +135,7 @@ class Pyramid:
         else:
             return False
 
-    def draw_pyramid_row(self, row: int):
+    def draw_pyramid_row(self, row: int) -> None:
         """
         Draws one row of a pyramid.
         """
@@ -246,7 +246,7 @@ def play_again() -> bool:
             return False
 
 
-def print_bases():
+def print_bases() -> None:
     """
     Prints the pyramid bases.
     """
@@ -326,7 +326,7 @@ def move_disk_to(src: int) -> int:
     return int(dst)
 
 
-def draw_pyramids():
+def draw_pyramids() -> None:
     """
     Draws each pyramid up to height 6.
     Draws pyramids next to each other
