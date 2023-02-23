@@ -14,14 +14,16 @@ from time import sleep
 
 # Rules taken from Wikipedia
 
-# https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
-
 
 def print_logo():
+    """
+    Prints logo. The ASCII logo was generated using the link below.
+    https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
+    """
     print("""
  _______                                  __   _    _                   _
 |__   __|                                / _| | |  | |                 (_)
-   | | _____      _____ _ __ ___    ___ | |_  | |__| | __ _ _ __   ___  _ 
+   | | _____      _____ _ __ ___    ___ | |_  | |__| | __ _ _ __   ___  _
    | |/ _ \ \ /\ / / _ \ '__/ __|  / _ \|  _| |  __  |/ _` | '_ \ / _ \| |
    | | (_) \ V  V /  __/ |  \__ \ | (_) | |   | |  | | (_| | | | | (_) | |
    |_|\___/ \_/\_/ \___|_|  |___/  \___/|_|   |_|  |_|\__,_|_| |_|\___/|_|\n\n""")
@@ -60,7 +62,7 @@ How to play:
 1. Choose the base (# 1, 2, 3) FROM WHICH you want to move the top disk.
 2. Choose the base (# 1, 2, 3) ON WHICH you want to place the chosen disk.
 
-Warning: If you take a disk which cannot be placed elsewhere, 
+Warning: If you take a disk which cannot be placed elsewhere,
 you must put it back on the same base.
 
 Good luck!\n"""
@@ -165,7 +167,7 @@ class Pyramid:
         """
         if not self.can_place_disk(disk):
             raise Exception(
-                """You may not place a larger disk on a smaller one. 
+                """You may not place a larger disk on a smaller one.
 Choose another base or return it.""")
         self.__list_of_disks.insert(0, disk)
 
@@ -258,7 +260,7 @@ def validate_tower_number_from(num: int) -> bool:
         print("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[num - 1].is_empty():
-        print("There is no disk in the chosen pyramid.")
+        print("There is no disk on the chosen base. Choose a different base.")
         return False
     return True
 
@@ -292,9 +294,6 @@ def validate_tower_number_to(dst, src: int) -> bool:
     if not (dst >= 1 and dst <= 3):
         print("You didn't choose a number between 1 and 3. Try again.\n")
         return False
-    # if dst == src:
-    #     print("You can not choose the same tower.")
-    #     return False
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         return True
     print("""You can't place a bigger disk on a smaller one. 
@@ -312,8 +311,6 @@ def move_disk_to(src: int) -> int:
     while True:
         dst = input("TO BASE NUMBER:\n")
         if validate_tower_number_to(dst, src):
-            # print("You are moving the chosen disk from tower number "
-            #       f"{src} to tower number {dst}.\n")
             break
 
     return int(dst)
