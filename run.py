@@ -226,6 +226,7 @@ def play_again() -> bool:
         if validate_answer(play):
             if play.upper() == "Y":
                 print("\n")
+                os.system("clear")
                 return True
             return False
 
@@ -334,11 +335,13 @@ def draw_pyramids() -> None:
 
 def winning_message(score: int, height: int) -> None:
     """
+    Clears the screen.
     Prints winning message and informs user about number of moves in comparison
     with minimum number of moves.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
     """
     # pylint: disable=anomalous-backslash-in-string
+
     print_yellow(r"""
 __     __                                 _
 \ \   / /                                | |
@@ -356,6 +359,26 @@ __     __                                 _
         print(
             f"Congratulations! You used {score} moves."
             f" Minimum number of moves was {2**height -1}.\n")
+
+
+def good_bye():
+    """
+    Clears the screen.
+    Displays good-bye message after the user decides not to play anymore.
+    https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Good%20Bye!
+    """
+    os.system("clear")
+
+    print(r"""
+   _____                 _   ____             _ 
+  / ____|               | | |  _ \           | |
+ | |  __  ___   ___   __| | | |_) |_   _  ___| |
+ | | |_ |/ _ \ / _ \ / _` | |  _ <| | | |/ _ \ |
+ | |__| | (_) | (_) | (_| | | |_) | |_| |  __/_|
+  \_____|\___/ \___/ \__,_| |____/ \__, |\___(_)
+                                    __/ |       
+                                   |___/        
+    """)
 
 
 welcome()
@@ -378,4 +401,4 @@ while True:
     if not play_again():
         break
 
-print("\nThank you for playing. Good bye.\n")
+good_bye()
