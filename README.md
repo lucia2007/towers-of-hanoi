@@ -171,13 +171,13 @@ The first few user options are displayed with a slight delay so the user has tim
 
 ### Difficulty Level
 
-![Difficulty level](/readme-images/difficulty_level.png)
-
 After the welcome message, the user is promted to choose a number of disks they want to play with. The more disks the user chooses, the more difficult and longer the game.
+
+![Difficulty level](/readme-images/difficulty_level_input.png)
 
 The user is expected to enter a number between 3 and 6. If they choose a number smaller or bigger than the given range, they are informed of their mistake and prompted to choose a number from the indicated range. Also, they are alerted if they choose a string instead of a number.
 
-### Intial Picture
+### Initial Picture
 
 After the user chooses a number of disks, a "playground" with the correct number of disks is displayed.
 
@@ -191,21 +191,18 @@ A move consists of two steps:
 
 #### ad 1) FROM BASE
 
-![FROM BASE](readme-images/from_base.png)
-
 The user must indicate from which base he wants to move the disk. They may not take a disk from an empty base. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice.
 
 #### ad 2) TO BASE
 
-![TO BASE](readme-images/to_base.png)
-
 The user must indicate on which base he wants to place the disk. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice. They may not place a disk on a base where is top disk is smaller than the chosen one.
 
+[How to play](/readme-images/mechanism_of_the_game.webm)
 
 [Back to top](#contents)
 ### Scores
 
-Each time the user moves a disk from one stack/pyramid to another, the number of moves is increased. The moves are displayed when the user has accomplished moving all the disks from the first base to the third base.
+Each time the user moves a disk from one stack/pyramid to another, the number of moves is increased. The moves are displayed when the user has accomplished moving all the disks from the first base to the third base in the winning message, see below.
 
 [Back to top](#contents)
 
@@ -219,6 +216,10 @@ Within the winning message, the user is informed of the number of moves they use
 At the end, the user gets a choice to play again or to quit the game. 
 
 When the user chooses the Play again option, the game is reset to the intial settings and the user can newly choose the level of difficulty.
+
+When the user chooses to quite, a good bye message is displayed.
+
+![Good-bye message](readme-images/good_bye.png)
 
 [Back to top](#contents)
 
