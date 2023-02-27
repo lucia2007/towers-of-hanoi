@@ -37,7 +37,7 @@ You can play the Towers of Hanoi here:
     - [Welcome message](#welcome-message)
     - [Slow Print](#slow-print)
     - [Difficulty Level](#difficulty-level)
-    - [Intial Picture](#intial-picture)
+    - [Initial Picture](#initial-picture)
     - [Mechanism of the Game](#mechanism-of-the-game)
       - [ad 1) FROM BASE](#ad-1-from-base)
       - [ad 2) TO BASE](#ad-2-to-base)
@@ -48,7 +48,7 @@ You can play the Towers of Hanoi here:
 - [Python Packages](#python-packages)
 - [Python Libraries](#python-libraries)
 - [Testing](#testing)
-- [Deployment](#deployment)
+- [Deployment to Heroku](#deployment-to-heroku)
   - [Project Deployment](#project-deployment)
   - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
   - [To create a local clone of a project](#to-create-a-local-clone-of-a-project)
@@ -234,6 +234,8 @@ When the user chooses the Play again option, the game is reset to the intial set
 - [Heroku](https://heroku.com/) - used for deploying the application
 - [Gitpod](https://www.gitpod.io/#get-started) - used for developing the application
 - [LucidChart](https://www.lucidchart.com) - used for creating the flow chart
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) - used for validation python code
+
 
 [Back to top](#contents)
 
@@ -246,9 +248,110 @@ When the user chooses the Play again option, the game is reset to the intial set
 For testing the application, I used manual testing and an external validators. Both manual and external testing are a part of a separate testing [file](/TESTING.md).
 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+[Back to top](#contents)
+
+# Deployment to Heroku
+
+## Project Deployment
+
+The application was deployed to Heroku. In order to deploy, the following steps were taken:
+
+1. If you have an account, login to Heroku. Otherwise create a new account.
+2. Once signed in, click the button "New" in the top right corner, below the header and choose "Create new app".
+   <details><summary><b>Create new app</b></summary>
+
+   ![Create new app](/readme-images/create_new_app.png)
+   </details><br />
+
+3. Choose a unique name for the application and select your region. When done, click "Create app".
+   <details><summary><b>Create app</b></summary>
+
+   ![Create app](/readme-images/create_app.png)
+   </details><br />
+
+
+4. This brings you to the "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button on the right.
+
+   <details><summary><b>Config Vars</b></summary>
+
+   ![Config Vars](/readme-images/config_vars.png)
+   </details><br />
+
+5. Afterwards, scroll down to the "Buildpacks" section of the settings page and click the button "Add buildpack".
+
+   <details><summary><b>Buildpacks</b></summary>
+
+   ![Buildpacks](/readme-images/buildpacks.png)
+   </details><br />
+
+6. First add "Python" package and then "node.js". 
+   
+   <details><summary><b>Buildpacks</b></summary>
+
+   ![Choose Buildpacks](/readme-images/packages_order.png)
+   </details><br />
+
+7. If you exchanged the order of the packages, just drag the Python package above.
+   
+   <details><summary><b>Buildpacks' Order</b></summary>
+   
+   ![Buildpacks's Order](/readme-images/buildpacks_correct_order.png)
+   </details><br />
+
+8. Scroll back to the top of the page and choose the "Deploy" tab. Then choose "GitHub" as Deployment method.
+   
+   <details><summary><b>Deployment method</b></summary>
+   
+   ![Deployment method](/readme-images/deploy.png)
+   </details><br />
+
+9. Go to "Connect to GiHub" section, search for the repository and then click "Connect".
+   
+   <details><summary><b>Deployment method</b></summary>
+   
+   ![Connect to GitHub](/readme-images/connect_repository.png)
+   </details><br />
+
+10. In the "Automatic Deploys" section, choose your preferred method for deployment. At first, I used the manual deployment option, and later I changed it to automatic deploys. Afterwards, click "Deploy Branch".
+   
+    <details><summary><b>Automatic Deploys</b></summary>
+   
+    ![Automatic Deploys](/readme-images/automatic_deploys.png)
+    </details><br />
+
+The link to the the live site can be found here - https://towers-of-hanoi-game.herokuapp.com/.
+The link to the GitHub repository can be found here - https://github.com/lucia2007/towers-of-hanoi.
+
+
+[Back to top](#contents)
+
+## To fork the repository on GitHub
+
+A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changed without affecting the original repository. Take the following steps to fork the repository:
+
+1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/discover-the-code).
+2. On the top right hand side of the page is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
+
+[GitHub forking process image](/readme-images/forking_process.png)
+
+[Back to top](#contents)
+
+## To create a local clone of a project
+
+Take the following steps to create a clone of a project:
+
+1. Click on the **Code** button in the left top corner.
+2. Next to the green **GitPod** button, click on **Code** drop-down menu.
+3. In the **HTTPS** section, click on the clipboard icon to copy the displayed URL.
+4. In your IDE of choice, open **Git Bash**.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type **git clone**, and then paste the URL copied from GitHub.
+7. Press **enter** and the local clone will be created.
+
+[Github cloning process image](/readme-images/cloning_process.png)
+
+[Back to top](#contents)
+
 
 ## Creating the Heroku app
 
