@@ -250,7 +250,7 @@ def validate_tower_number_from(num_input: str) -> bool:
     except ValueError as error:
         print_red(f"Invalid data: {error}. You did not choose a number.\n")
         return False
-    if not (1 <= num <= 3):
+    if not 1 <= num <= 3:
         print_red("You didn't choose a number between 1 and 3. Try again.\n")
         return False
     if pyramids[num - 1].is_empty():
@@ -370,14 +370,14 @@ def good_bye():
     os.system("clear")
 
     print(r"""
-   _____                 _   ____             _ 
+   _____                 _   ____             _
   / ____|               | | |  _ \           | |
  | |  __  ___   ___   __| | | |_) |_   _  ___| |
  | | |_ |/ _ \ / _ \ / _` | |  _ <| | | |/ _ \ |
  | |__| | (_) | (_) | (_| | | |_) | |_| |  __/_|
   \_____|\___/ \___/ \__,_| |____/ \__, |\___(_)
-                                    __/ |       
-                                   |___/        
+                                    __/ |
+                                   |___/
     """)
 
 
