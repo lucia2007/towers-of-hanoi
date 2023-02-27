@@ -25,8 +25,8 @@ You can play the Towers of Hanoi here:
       - [Frequent Visitor](#frequent-visitor)
   - [Creation Process](#creation-process)
     - [Planning](#planning)
-      - [Projects Tool](#projects-tool)
-      - [Dependency diagram](#dependency-diagram)
+    - [Projects Tool](#projects-tool)
+    - [Dependency diagram](#dependency-diagram)
     - [App Structure](#app-structure)
     - [Python Logic](#python-logic)
   - [Design Choices](#design-choices)
@@ -98,37 +98,45 @@ Requirements for the game:
 
 ### Planning
 
-Before I started working on the actual application, I created a flow chart which helped me organize dependencies and provided me with a blueprint to follow when developing the app. This was extremely useful especially in moments, when it was not clear were a certain function or a feature belonged, what the dependencies were or with what should be tackled next. 
+Before I started working on the actual application, I created a flow chart which helped me organize dependencies and provided me with a blueprint to follow when developing the app. This was extremely useful especially in moments when it was not clear where a certain function or a feature belonged, what the dependencies were or what should be tackled next. 
+
+Example of requirements taken into account:
   - The user will be able to choose the level of difficulty.
   - The screen will be cleared periodically, so the user is not overwhelmed or confussed by a large number of print statements.
   - The game will show the scores in the winning message and compare them to minimum required moves.
   - The user will have a choice to play again or stop playing the game.
   
-[Back to top](#contents) -->
+[Back to top](#contents)
 
-#### Projects Tool
+### Projects Tool
 
-I used Projects tool inbuilt in GitHub, [GitHub's Projects](https://github.com/lucia2007?tab=projects), to help me manage the scope of the project, to track my progress and record bugs, but also to jot down any ideas that were relevant for the application development. These ideas were either later applied in the code or dismissed if they did not seem to enhance the user experience or improve the development process.
+I used Projects tool inbuilt in GitHub, [GitHub's Projects](https://github.com/lucia2007?tab=projects), to help me manage the scope of the project, to track my progress and record bugs, but also to jot down any ideas that were relevant for the application development. These ideas were either later applied in the code or dismissed if they did not seem to enhance the user's experience or improve the development process.
 
 Whenever I had an idea related to the project, I would jot it down in the "To Do" section. Later, I would choose 2, max 3 things that were currently being worked on and I placed them in the "In Progress" section. If I became stuck on a task for whatever reason or depended on external input, I moved it to "Blocked". At last, when a task was completed, I would move it to the "Done" section.
 
-This tool has been very benefitial for my development process, especially, because I could rely on having all the information here. I would write down the sources to be credited, or bugs to be fixed or ideas on how to improve some part of the application so I did not have to worry about having forgotten something crucial. 
+This tool has been very benefitial for my development process, especially, because I could rely on having all the information here. I would write down the sources to be credited, or bugs to be fixed or ideas on how to improve some part of the application, so I did not have to worry about having forgotten something crucial. 
 
-In the future, for a bigger project, I would focus on a more detailed description of messages and adding next steps or a deadline for each of the entries.
-#### Dependency diagram
+In the future, for a bigger project, I would focus on a more detailed description of the tasks and adding next steps or a deadline for each of the entries.
+
+[Back to top](#contents)
+### Dependency diagram
 
   This is the original flow chart where I broke the program into managable clear steps. 
   <!-- add a picture of the flow chart -->
 
+[Back to top](#contents)
 ### App Structure
 The app structure is very simple and uniform as it is a CLI application and its dimensions are restricted by the display window of 80 characters per line on max 24 lines.
 
+[Back to top](#contents)
 ### Python Logic
   The logic of the game itself is not very difficult: The goal is to move all the disks from the first base to the last base. The main restriction is that the user may not place a bigger disk on a smaller one. The game can become quite long and tedius if the user is just randomly moving the disks and is not trying to optimize the number of moves. On the other hand, it can be quite motivating to try to achieve the minumum number of moves.
 
-  I had to frequently manually validate the user input to make sure, that the correct type of input was returned. In case of a number input I had to check if the number if a number was entered and if it was within the required range. For a string, I had to check if the correct string was returned. 
+  I had to frequently manually validate the user input to make sure that the correct type of input was returned. In case of a number input I had to check if a number was entered, and if it was within the required range. For a string, I had to check if the correct string was returned.
   
-  Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice. All warning messages are displayed in red, so the user is alerted about the mistake. I also had to check for logical catches like preventing the user from taking a disk from an empty pyramid, or placing a bigger disk on a smaller one.
+  Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice. All warning messages are displayed in red, so the user is alerted about the mistake. 
+  
+  I also had to check for logical catches like preventing the user from taking a disk from an empty pyramid, or placing a bigger disk on a smaller one.
 
   I used (Object oriented programming) OOP in some parts of the application for better manipulation with the objects. This proved helpful especially when moving the disks from one stack to the other, or for drawing the pyramids.
 
@@ -136,12 +144,14 @@ The app structure is very simple and uniform as it is a CLI application and its 
 
 ## Design Choices
 
-I have tried to keep the game design very simple and easily legible. I did use ASCII art to make the welcome screen a bit more interesting. I also used the ASCII Art to inform the user of their win. 
+I tried to keep the game design very simple and easily legible. However, I used ASCII art to make the welcome and good-bye screens a bit more interesting. I also used the ASCII Art to inform the user of their win. The winning message is in yellow color to make it stand out more.
 
-
+[Back to top](#contents)
 ### Typography
 
 I have not altered the type of script, as the original one is well suited for this app. 
+
+[Back to top](#contents)
 
 ### Color Scheme
 
@@ -197,7 +207,7 @@ The user must indicate from which base he wants to move the disk. They may not t
 
 The user must indicate on which base he wants to place the disk. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice. They may not place a disk on a base where is top disk is smaller than the chosen one.
 
-[How to play](/readme-images/mechanism_of_the_game.webm)
+[How to play video](/readme-images/mechanism_of_the_game.webm)
 
 [Back to top](#contents)
 ### Scores
@@ -208,8 +218,9 @@ Each time the user moves a disk from one stack/pyramid to another, the number of
 
 ### Winning message
 
-![The Winning message](./readme-images/congratulations.png)
 When the user manages to move all the disks from the 1st base to the last one, they are informed of successfully finishing the game. 
+
+![The Winning message](/readme-images/congratulations.png)
 
 Within the winning message, the user is informed of the number of moves they used. This number is compared to the minimum number of moves which is 2**n -1. This can motivate the user to decrease the number of moves they use next time, or the user is congratulated on the use of minimum number of moves if that's what they achieved.
 
@@ -217,14 +228,13 @@ At the end, the user gets a choice to play again or to quit the game.
 
 When the user chooses the Play again option, the game is reset to the intial settings and the user can newly choose the level of difficulty.
 
-When the user chooses to quite, a good bye message is displayed.
+When the user chooses to quit, a good bye message is displayed.
 
 ![Good-bye message](readme-images/good_bye.png)
 
 [Back to top](#contents)
-
 ### Future Features
-- I would like to improve the visualization of the disk being moved for the user to clearly see the moved disk. This is mainly because of a confusing situation when the user is trying to move a disk which is bigger than top disks on the other stacks and thus has to return the disk to its original position.
+- I would like to improve the visualization of the disk being moved for the user to clearly see the moved disk. This is mainly because of a confusing situation when the user is trying to move a disk which is bigger than top disks on all the other stacks and thus has to return the disk to its original position. 
 
 - In the future, I could also implement the user name usage and score tracking functionality.
 
@@ -354,10 +364,11 @@ Take the following steps to create a clone of a project:
 [Back to top](#contents)
 
 
-## Creating the Heroku app
+- The framework for the Readme file was originally inspired by [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md), [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing) and [CI_Project-Protfolio-3](https://github.com/MikeR94/CI-Project-Portfolio-3#python-logic)
 
 ## Media
-- [Towers of Hanoi illustrative picture](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)
+- [Towers of Hanoi illustrative picture](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/ target="_blank" rel="noopener")
+- [Towers of Hanoi in CLI](https://unix.stackexchange.com/questions/382585/animation-inside-terminal-with-escape-codes target="_blank" rel="noopener")
 
 1. `heroku/python`
 2. `heroku/nodejs`
