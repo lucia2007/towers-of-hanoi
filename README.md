@@ -364,33 +364,31 @@ Take the following steps to create a clone of a project:
 [Back to top](#contents)
 
 
+# Credits
+
+## Content
+- The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/Tower-Hanoi-9-disc-version/dp/B0006A3JZC/ref=asc_df_B0006A3JZC/?tag=googshopuk-21&linkCode=df0&hvadid=310869104636&hvpos=&hvnetw=g&hvrand=15866353930159951919&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-439214070867&psc=1" target="_blank" rel="noopener">Tower of Hanoi</a> which my children recently discovered and fell in love with.
+<!-- - [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram. -->
 - The framework for the Readme file was originally inspired by [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md), [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing) and [CI_Project-Protfolio-3](https://github.com/MikeR94/CI-Project-Portfolio-3#python-logic)
 
 ## Media
-- [Towers of Hanoi illustrative picture](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/ target="_blank" rel="noopener")
-- [Towers of Hanoi in CLI](https://unix.stackexchange.com/questions/382585/animation-inside-terminal-with-escape-codes target="_blank" rel="noopener")
-
-1. `heroku/python`
-2. `heroku/nodejs`
+- I used <a href="https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/" target="_blank" rel="noopener">Towers of Hanoi illustrative picture</a> in my dependency diagram to keep in mind what I was trying to simulate.
+- When looking for inspiration as how to approach the visualization of the game in CLI, I came accross this version: <a href="https://unix.stackexchange.com/questions/382585/animation-inside-terminal-with-escape-codes" target="_blank" rel="noopener">Towers of Hanoi in CLI</a>.
 
 ## Acknowledgements
 - Extra help and guidance was received from my mentor Precious Ijege, from my husband Sam and fellow colleagues from the Code Institute.
-- My husband Sam encouraged me to use OOP and guided me through it. He also encouraged me to use annotation for functions which helped me during the debugging process.
+- My husband Sam encouraged me to use OOP and guided me through it. He also encouraged me to use annotation for functions which helped me during the debugging process. Lastly, he showed my how to disable pylint statements.
 - Other sources of inspiration and help:
-https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/
-https://www.geeksforgeeks.org/clear-screen-python/
-https://pythonexamples.org/python-convert-range-into-a-list/
-https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
-https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
-https://www.freecodecamp.org/news/python-do-while-loop-example/
+  - [Clear Screen in Python](https://www.geeksforgeeks.org/clear-screen-python/)
+  - [Convert range into list](https://pythonexamples.org/python-convert-range-into-a-list/)
+  - [Slow print](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python)
+  - [Sleep function](https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.)
+  - [While Do Loop in Python](https://www.freecodecamp.org/news/python-do-while-loop-example/)
+  - [ASCII ART Generator](https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi)
+  - [Use and installation of COLORAMA](https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.)
+  - [Print multiple lines of text in Python](https://stackoverflow.com/questions/34980251/how-to-print-multiple-lines-of-text-with-python)
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
 
 [Back to top](#contents)
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
