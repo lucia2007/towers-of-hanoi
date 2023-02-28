@@ -1,19 +1,13 @@
 """Tower of Hanoi"""
-# https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.
-from time import sleep
+
 import time
+from time import sleep
 import sys
 import random
+
 import os
 import colorama
 colorama.init()
-# https://www.geeksforgeeks.org/clear-screen-python/
-# https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
-# https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=You%20can%20use%20Python's%20sleep,pauses%20between%20words%20or%20graphics.
-# https://rich.readthedocs.io/en/latest/console.html#justify-alignment
-# from rich.console import Console
-
-# Rules taken from Wikipedia
 
 
 def print_logo() -> None:

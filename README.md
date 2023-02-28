@@ -46,7 +46,6 @@ You can play the Towers of Hanoi here:
     - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Python Packages](#python-packages)
-- [Python Libraries](#python-libraries)
 - [Testing](#testing)
     - [Manual testing](#manual-testing)
     - [External Testing](#external-testing)
@@ -253,7 +252,11 @@ When the user chooses to quit, a good bye message is displayed.
 
 # Python Packages
 
-# Python Libraries
+* [Colorama](https://pypi.org/project/colorama/) - Used to add colours to the terminal.
+* [Time](https://docs.python.org/3/library/time.html) - Used for the slow print functionality and for delaying print statements.
+* [Sys](https://docs.python.org/3/library/sys.html) - Used to provide access to some variables used or maintained by the interpreter.
+* [Random](https://docs.python.org/3/library/random.html) - Used within the slow print functionality.
+* [OS](https://docs.python.org/3/library/os.html) - Used to clear the screen in the terminal.
 
 # Testing
 
