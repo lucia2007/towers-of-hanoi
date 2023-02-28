@@ -7,9 +7,6 @@ This game can be played both by adults and children. In fact, the inspiration fo
 You can play the Towers of Hanoi here:
 [Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/)
 
-<!-- 
-![Towers of Hanoi](./readme-images/amiresponsive.png)  -->
-
 [Back to top](#contents)
 
 # Contents
@@ -123,7 +120,8 @@ In the future, for a bigger project, I would focus on a more detailed descriptio
 ### Dependency diagram
 
   This is the original flow chart where I broke the program into managable clear steps. 
-  <!-- add a picture of the flow chart -->
+
+  [Dependency Diagram](dependency.drawio.svg)
 
 [Back to top](#contents)
 ### App Structure
@@ -241,12 +239,14 @@ When the user chooses to quit, a good bye message is displayed.
 [Back to top](#contents)
 
 # Technologies Used
-- [Github](https://github.com/) - used for hosting the repository
-- [Heroku](https://heroku.com/) - used for deploying the application
-- [Gitpod](https://www.gitpod.io/#get-started) - used for developing the application
-- [LucidChart](https://www.lucidchart.com) - used for creating the flow chart
-- [CI Python Linter](https://pep8ci.herokuapp.com/#) - used for validation python code
-
+- [Github](https://github.com/) - Used for hosting the repository.
+- [Heroku](https://heroku.com/) - Used for deploying the application.
+- [Gitpod](https://www.gitpod.io/#get-started) - Used for developing the application.
+- [Python](https://www.python.org/) - Used for adding functionality to the application.
+- [Projects in GitHub](https://github.com/lucia2007?tab=projects) - Used for project managament.
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used for validation python code.
+- [Markdown Table Generator](https://www.tablesgenerator.com/markdown_tables) - Used to generate tables in Markdown.
+- [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - Used for creating the dependency diagram.
 
 [Back to top](#contents)
 
@@ -381,7 +381,7 @@ Take the following steps to create a clone of a project:
 
 ## Content
 - The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/Tower-Hanoi-9-disc-version/dp/B0006A3JZC/ref=asc_df_B0006A3JZC/?tag=googshopuk-21&linkCode=df0&hvadid=310869104636&hvpos=&hvnetw=g&hvrand=15866353930159951919&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-439214070867&psc=1" target="_blank" rel="noopener">Tower of Hanoi</a> which my children recently discovered and fell in love with.
-<!-- - [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram. -->
+- [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) was used to create the dependency diagram.
 - The framework for the Readme file was originally inspired by [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md), [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing) and [CI_Project-Protfolio-3](https://github.com/MikeR94/CI-Project-Portfolio-3#python-logic)
 
 ## Media
@@ -400,6 +400,7 @@ Take the following steps to create a clone of a project:
   - [ASCII ART Generator](https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi)
   - [Use and installation of COLORAMA](https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.)
   - [Print multiple lines of text in Python](https://stackoverflow.com/questions/34980251/how-to-print-multiple-lines-of-text-with-python)
+  - [Creat raw string in Python](https://www.digitalocean.com/community/tutorials/python-raw-string)
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
 
