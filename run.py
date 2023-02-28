@@ -25,7 +25,7 @@ def print_logo() -> None:
 """)
 
 
-def slow_print(text) -> None:
+def slow_print(text: str) -> None:
     """
     Prints the text slowly, letter by letter.
     https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
@@ -177,7 +177,7 @@ class Pyramid:
         if not self.can_place_disk(disk):
             raise Exception(
                 """You may not place a larger disk on a smaller one.
-Choose another base or return it.""")
+Choose another base or return the disk.""")
         self.__list_of_disks.insert(0, disk)
 
     def get_top_disk(self) -> int:
@@ -355,7 +355,7 @@ __     __                                 _
             f" Minimum number of moves was {2**height -1}.\n")
 
 
-def good_bye():
+def good_bye() -> None:
     """
     Clears the screen.
     Displays good-bye message after the user decides not to play anymore.
