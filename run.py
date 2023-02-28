@@ -377,6 +377,14 @@ def good_bye() -> None:
 
 welcome()
 BASE = int(23)
+
+
+def main() -> None:
+    """
+    Runs all program functions
+    """
+
+
 while True:
     moves = 0  # pylint: disable=invalid-name
     disks = choose_difficulty()
@@ -395,4 +403,5 @@ while True:
     if not play_again():
         break
 
+main()
 good_bye()
