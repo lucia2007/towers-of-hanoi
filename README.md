@@ -48,6 +48,8 @@ You can play the Towers of Hanoi here:
 - [Python Packages](#python-packages)
 - [Python Libraries](#python-libraries)
 - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [External Testing](#external-testing)
 - [Deployment to Heroku](#deployment-to-heroku)
   - [Project Deployment](#project-deployment)
   - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
@@ -198,7 +200,6 @@ After the user chooses a number of disks, a "playground" with the correct number
 A move consists of two steps:
 1. The user has to choose FROM WHICH base they want to take the top disk.
 2. The user has to indicate ON WHICH base they want to place the chosen disk.
-
 #### ad 1) FROM BASE
 
 The user must indicate from which base he wants to move the disk. They may not take a disk from an empty base. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice.
@@ -256,8 +257,17 @@ When the user chooses to quit, a good bye message is displayed.
 
 # Testing
 
-For testing the application, I used manual testing and an external validators. Both manual and external testing are a part of a separate testing [file](/TESTING.md).
+For testing the application, I used manual testing and external validators. Both manual and external testing are a part of a separate testing [file](/TESTING.md).
 
+### Manual testing
+  - I used manual testing throughout the whole development phase of the project. Mainly:
+    - I frequently checked if all the inputs were valid, namely if my validation functions were catching all errors and exceptions. (Details are in the [Testing file](TESTING.md).)
+    - I played the game repeatedly to see if the correct winning message was displaying when the user finished the game.
+    - I made sure that when the user chose to play again, they would be taken to the choice of a difficulty level and the moves counter was cleared (setting of the initial state).
+    - I checked if a good-bye message displayed after the user chose not to play again.
+
+### External Testing
+  All external testing is a part of a separate testing [file](/TESTING.md).
 
 [Back to top](#contents)
 
