@@ -2,7 +2,7 @@
 
 ## Code Validation
 
-The [Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/) application was thouroughly tested. Python code was reviewed in the [CI Python Linter](https://pep8ci.herokuapp.com/#). As I was continuously correcting warnings and mistakes using pylint in my GitPod, when I ran the code through the CI Python Linter, there was only one warning about an extra line at the end of the file, which I subsequently deleted. Currently, the run.py file has no errors.
+The [Towers of Hanoi](https://towers-of-hanoi-game.herokuapp.com/) application was thouroughly tested. Python code was reviewed in the [CI Python Linter](https://pep8ci.herokuapp.com/#). As I was continuously correcting warnings and mistakes using pylint in my GitPod, when I ran the code through the CI Python Linter, there was only one warning about an extra line at the end of the file, which I subsequently deleted. Currently, the [run.py file](/run.py) has no errors.
 
 [CI Python Linter No Errors](/readme-images/python_linter_all_clear.png)
 
@@ -28,27 +28,44 @@ Each of the inputs has been throroughly tested. The user makes these choices:
       - The user does not choose a number.
       - The user chooses a number which is smaller than 3 or bigger than 6.
     - Each time the user makes an error, they are informed of this fact and are prompted to correct their choice.
-    - [Input Validation](readme-images/difficulty_level.png)
 
-1. User chooses from which base he wants to take a disk, possible inputs: 1, 2 or 3.
+      <details><summary><b>Input Validation</b></summary>
+   
+      ![Connect to GitHub](/readme-images/difficulty_level.png)
+      </details><br />
+
+2. User chooses from which base he wants to take a disk, possible inputs: 1, 2 or 3.
    - Possible errors:
      - The user does not choose a number. 
      - The user chooses a number wich is smaller than 1 or bigger than 3.
      - The user wants to move a disk from na empty base.
-    - [Input Validation](readme-images/from_base.png)
+
+      <details><summary><b>Input Validation</b></summary>
+   
+      ![Connect to GitHub](/readme-images/from_base.png)
+      </details><br /> 
 
 3. User chooses on which base he wants to place the disk, possible inputs: 1, 2 or 3.
    - Possible errors:
      - The user does not choose a number. 
      - The user chooses a number wich is smaller than 1 or bigger than 3.
      - The user wants to place a bigger disk on a smaller one.
-   - [Input Validation](/readme-images/to_base.png)
+
+      <details><summary><b>Input Validation</b></summary>
+   
+      ![Connect to GitHub](/readme-images/to_base.png)
+      </details><br /> 
 
 4. User decides if they want to play again ("Y") or if they want to quite ("N").
     - Possible errors:
       - The user does not choose a letter.
       - The user does not choose "Y" or "N". (The input does not have to be capitalized.)
-    - [Input Validation](/readme-images/play_again.png)
+
+      <details><summary><b>Input Validation</b></summary>
+   
+      ![Connect to GitHub](/readme-images/play_again.png)
+      </details><br /> 
+      
 ## Additional Testing
 ### Lighthouse
 
