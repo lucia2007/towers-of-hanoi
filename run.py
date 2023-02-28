@@ -381,7 +381,7 @@ BASE = int(23)
 
 def main() -> None:
     """
-    Runs all program functions
+    Runs program functions
     """
 
 
