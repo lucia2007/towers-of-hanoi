@@ -68,22 +68,13 @@ The primary goal of this CLI application is to provide a simple game for childre
 Towers of Hanoi game has been designed to be straightforward, with minimalist design due to using CLI. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The user can choose a level of difficulty and can challenge themselves the beat the minimum number of moves needed.
 
 #### First Time Visitor
+  - A user can read the welcome message.
   - A user can find the game rules on the opening screen.
-  - A user can
-
-I tried to break each step into a managable bite-size function so the code would be easy to read and understand. I started by figuring out the dimensions of my disks and the maximum number of disks the user would be able to use for choosing difficulty levels. Afterwards, I focused on being able to move the disks from one base to another. At first I was printing the pyramids below each other for simplicity, but later I changed the layout to parallel for better readability and to go back to the original layout. Towards the end of the development process, I started adding some nice-to-have features, like clearing the screen for a less messy output or shortening and rephrasing the rules and prompts for better comprehension. As I went, I refactored the code wherever possible to make it easily comprehensible.
-
-For this project, I did not create any wireframes, as the application is rather simple in layout and is mainly intended to be played on the desktop. But, I was inspired by this [picture](readme-images/tower-of-hanoi.png) and this [version in terminal](/readme-images/towers_of_hanoi_terminal.gif).
-
-My main goal was for the content to fit within the restricted size of the window. The width of the window also predetermined the highest level of difficulty, as the largest disks needed to fit three times next to each other on the screen of 80 characters. I used the clear function to keep the CLI neat and easily readable.
-
-Requirements for the game:
-  - The game will use simple and clear representation of the towers of Hanoi. start the game by pressing the Run Program button.
-  - A user can choose the level of difficilty by indicating a number of disks they want to play with.
-  - A user can expect the number of moves to be displayed in the winning message.
+  - A user can choose the level of difficulty by indicating a number of disks they want to play with.
   - A user can expect a visual feedback for warnings, but also for winning the game.
-  - A user can choose to Play again after they have won or lost, or choose to leave the game.
+  - A user can expect the number of moves to be displayed in the winning message.
   - A user can compare their number of moves with the minimum number of moves needed.
+  - A user can choose to Play again after they have won, or choose to leave the game.
 #### Returning Visitor
   - A user is familiar with the rules and can start the game by clicking the Run button.
   - A user can choose the level of difficulty. The more disks they choose, the more difficult the game.
@@ -91,14 +82,21 @@ Requirements for the game:
 #### Frequent Visitor
   - A user can try to use the minimum number of moves which according to [Wikipeadia](https://en.wikipedia.org/wiki/Tower_of_Hanoi) is 2**n - 1.
 
+
 [Back to top](#contents)
 ## Creation Process
-
 ### Planning
 
-Before I started working on the actual application, I created a flow chart which helped me organize dependencies and provided me with a blueprint to follow when developing the app. This was extremely useful especially in moments when it was not clear where a certain function or a feature belonged, what the dependencies were or what should be tackled next. 
+Before I started working on the actual application, I created a flow chart (see below) which helped me organize dependencies and provided me with a blueprint to follow when developing the app. This was extremely useful especially in moments when it was not clear where a certain function or a feature belonged, what the dependencies were or what should be tackled next. 
+
+I tried to break each step into a managable bite-size function so the code would be easy to read and understand. I started by figuring out the dimensions of my disks and the maximum number of disks the user would be able to use for choosing difficulty levels. Afterwards, I focused on being able to move the disks from one base to another. At first I was printing the pyramids below each other for simplicity, but later I changed the layout to parallel for better readability and to go back to the original layout. Towards the end of the development process, I started adding some nice-to-have features, like clearing the screen for a less messy output or shortening and rephrasing the rules and prompts for better comprehension. As I went, I refactored the code wherever possible to make it easily comprehensible.
+
+For this project, I did not create any wireframes, as the application is rather simple in layout and is mainly intended to be played on the desktop. But, I was inspired by this [picture](readme-images/tower-of-hanoi.png) and this [version in terminal](/readme-images/towers_of_hanoi_terminal.gif).
+
+My main goal was for the content to fit within the restricted size of the window. The width of the window also predetermined the highest level of difficulty, as the largest disks needed to fit three times next to each other on the screen of 80 characters. I used the clear function to keep the CLI neat and easily readable.
 
 Example of requirements taken into account:
+  - The game will use simple and clear representation of the towers of Hanoi.
   - The user will be able to choose the level of difficulty.
   - The screen will be cleared periodically, so the user is not overwhelmed or confussed by a large number of print statements.
   - The game will show the scores in the winning message and compare them to minimum required moves.
@@ -112,9 +110,11 @@ I used Projects tool inbuilt in GitHub, [GitHub's Projects](https://github.com/l
 
 Whenever I had an idea related to the project, I would jot it down in the "To Do" section. Later, I would choose 2, max 3 things that were currently being worked on and I placed them in the "In Progress" section. If I became stuck on a task for whatever reason or depended on external input, I moved it to "Blocked". At last, when a task was completed, I would move it to the "Done" section.
 
-This tool has been very benefitial for my development process, especially, because I could rely on having all the information here. I would write down the sources to be credited, or bugs to be fixed or ideas on how to improve some part of the application, so I did not have to worry about having forgotten something crucial. 
+This tool has been very benefitial for my development process, especially, because I could rely on having all the information there. I would write down the sources to be credited, or bugs to be fixed or ideas on how to improve some part of the application, so I did not have to worry about having forgotten something crucial. 
 
 In the future, for a bigger project, I would focus on a more detailed description of the tasks and adding next steps or a deadline for each of the entries.
+
+[GitHub Projects](readme-images/projects_tool.png)
 
 [Back to top](#contents)
 ### Dependency diagram
@@ -131,7 +131,7 @@ The app structure is very simple and uniform as it is a CLI application and its 
 ### Python Logic
   The logic of the game itself is not very difficult: The goal is to move all the disks from the first base to the last base. The main restriction is that the user may not place a bigger disk on a smaller one. The game can become quite long and tedius if the user is just randomly moving the disks and is not trying to optimize the number of moves. On the other hand, it can be quite motivating to try to achieve the minumum number of moves.
 
-  I had to frequently manually validate the user input to make sure that the correct type of input was returned. In case of a number input I had to check if a number was entered, and if it was within the required range. For a string, I had to check if the correct string was returned.
+  I had to frequently manually validate the user's input to make sure that the correct type of input was returned. In case of a number input I had to check if a number was entered, and if it was within the required range. For a string, I had to check if the correct string was returned.
   
   Anytime the user does not provide the correct input, they are informed about their mistake and asked to correct their choice. All warning messages are displayed in red, so the user is alerted about the mistake. 
   
@@ -154,7 +154,7 @@ I have not altered the type of script, as the original one is well suited for th
 
 ### Color Scheme
 
-As regards color scheme, I mostly went along with the original setting, but I did install [Colorama](https://pypi.org/project/colorama/) in order to be able to use red color of font for warnings and yellow color for the winning display.
+As regards the color scheme, I mostly went along with the original setting, but I did install [Colorama](https://pypi.org/project/colorama/) in order to be able to use red color of font for warnings and yellow color for the winning display.
 
 [Back to top](#contents)
 
@@ -199,11 +199,11 @@ A move consists of two steps:
 2. The user has to indicate ON WHICH base they want to place the chosen disk.
 #### ad 1) FROM BASE
 
-The user must indicate from which base he wants to move the disk. They may not take a disk from an empty base. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice.
+The user must indicate from which base they want to move the disk. They may not take a disk from an empty base. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice.
 
 #### ad 2) TO BASE
 
-The user must indicate on which base he wants to place the disk. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice. They may not place a disk on a base where is top disk is smaller than the chosen one.
+The user must indicate on which base they want to place the disk. They must choose a number between 1 and 3. If a mistake is made, the user is alerted by a message printed in red and they are prompted to correct their choice. They may not place a disk on a base where the top disk is smaller than the chosen one.
 
 [How to play video](/readme-images/mechanism_of_the_game.webm)
 
@@ -310,7 +310,7 @@ The application was deployed to Heroku. In order to deploy, the following steps 
 
 6. First add "Python" package and then "node.js". 
    
-   <details><summary><b>Buildpacks</b></summary>
+   <details><summary><b>Choose Buildpacks</b></summary>
 
    ![Choose Buildpacks](/readme-images/packages_order.png)
    </details><br />
@@ -331,7 +331,7 @@ The application was deployed to Heroku. In order to deploy, the following steps 
 
 9. Go to "Connect to GiHub" section, search for the repository and then click "Connect".
    
-   <details><summary><b>Deployment method</b></summary>
+   <details><summary><b>Connect to GitHub</b></summary>
    
    ![Connect to GitHub](/readme-images/connect_repository.png)
    </details><br />
@@ -353,7 +353,7 @@ The link to the GitHub repository can be found here - https://github.com/lucia20
 
 A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changed without affecting the original repository. Take the following steps to fork the repository:
 
-1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/discover-the-code).
+1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/towers-of-hanoi).
 2. On the top right hand side of the page is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
 
 [GitHub forking process image](/readme-images/forking_process.png)
@@ -385,7 +385,7 @@ Take the following steps to create a clone of a project:
 - The framework for the Readme file was originally inspired by [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md), [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing) and [CI_Project-Protfolio-3](https://github.com/MikeR94/CI-Project-Portfolio-3#python-logic)
 
 ## Media
-- I used <a href="https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/" target="_blank" rel="noopener">Towers of Hanoi illustrative picture</a> in my dependency diagram to keep in mind what I was trying to simulate.
+- I was inspired by <a href="https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/" target="_blank" rel="noopener">Towers of Hanoi illustrative picture</a>. 
 - When looking for inspiration as how to approach the visualization of the game in CLI, I came accross this version: <a href="https://unix.stackexchange.com/questions/382585/animation-inside-terminal-with-escape-codes" target="_blank" rel="noopener">Towers of Hanoi in CLI</a>.
 
 ## Acknowledgements
@@ -400,7 +400,7 @@ Take the following steps to create a clone of a project:
   - [ASCII ART Generator](https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi)
   - [Use and installation of COLORAMA](https://dev.to/muhimen123/colored-text-in-terminal-using-python-1nmd#:~:text=In%20colorama%2C%20the%20font%20color,start%20by%20importing%20the%20module.&text=Then%2C%20in%20the%20print%20statement,Just%20like%20this.)
   - [Print multiple lines of text in Python](https://stackoverflow.com/questions/34980251/how-to-print-multiple-lines-of-text-with-python)
-  - [Creat raw string in Python](https://www.digitalocean.com/community/tutorials/python-raw-string)
+  - [Create raw string in Python](https://www.digitalocean.com/community/tutorials/python-raw-string)
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
 
