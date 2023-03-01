@@ -12,7 +12,8 @@ colorama.init()
 
 def print_logo() -> None:
     """
-    Prints logo. The ASCII logo was generated using the link below.
+    Prints logo.
+    The ASCII logo was generated using the link below.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=Towers%20of%20Hanoi
     """
     print(r"""
@@ -27,7 +28,7 @@ def print_logo() -> None:
 
 def slow_print(text: str) -> None:
     """
-    Prints the text slowly, letter by letter.
+    Prints the text letter by letter. Speed of the print can be adjusted.
     https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
     """
     for word in text + '\n':
@@ -39,7 +40,7 @@ def slow_print(text: str) -> None:
 def welcome() -> None:
     """
     This function welcomes the user and explains the rules.
-    The text is printed slowly.
+    The text is printed slowly, letter by letter.
     """
     print_logo()
     welcome_text = """
@@ -85,6 +86,8 @@ def choose_difficulty() -> int:
     The user chooses the level of difficulty. The higher the number, the more
     difficult the game. The input is validated.
     The function returns the number of disks the user wants to use.
+    There is a pause at the beginning for the user to be able to read
+    the message and make a choice.
     """
     sleep(1)
     print("""How many disks do you want to play with? The more disks, the more
@@ -133,16 +136,17 @@ class Pyramid:
         """
         if len(self.__list_of_disks) == 0:
             return True
-        else:
-            return False
+        return False
 
     def draw_pyramid_row(self, row: int) -> None:
         """
         Draws one row of a pyramid.
         """
         if row < 6 - len(self.__list_of_disks):
+            # Prints empty lines to display a pyramid of maximum height (6)
             print(23*" ", end="")
         else:
+            # j represents the nth element in the list of disks
             j = self.__list_of_disks[row - (6 - len(self.__list_of_disks))]
             disk = (10-2*j)*" " + (4*j + 3) * "*" + (10-2*j)*" "
             print(disk, end="")
@@ -158,10 +162,10 @@ class Pyramid:
 
     def can_place_disk(self, disk: int) -> bool:
         """
-        Checks if a disk may be placed on a pyramid
+        Checks if a disk may be placed on a pyramid.
         The destionation pyramid either has to be empty
-        or the top disk must be bigger than the one
-        which is being moved.
+        or the top disk of the destination pyramid must be bigger
+        than the one which is being moved.
         """
         if self.is_empty():
             return True
@@ -171,8 +175,8 @@ class Pyramid:
 
     def add_top_disk(self, disk: int) -> None:
         """
-        Adds the uppermost disk to a new stack.
-        NOT YET - only if the new disk is smaller than the previous one.
+        Adds the uppermost disk to the chosen stack, but
+        only if the new disk is smaller than the previous one.
         """
         if not self.can_place_disk(disk):
             raise Exception(
@@ -203,14 +207,13 @@ def validate_answer(choice: str) -> bool:
         choice = choice.upper()
         if choice == "Y" or choice == "N":
             return True
-        else:
-            print_red("Invalid answer. You did not choose \"Y\" or \"N\".\n")
-            return False
+        print_red("Invalid answer. You did not choose \"Y\" or \"N\".\n")
+        return False
 
 
 def play_again() -> bool:
     """
-    Asks the player if he wants to play again.
+    Asks the player if they want to play again.
     """
     sleep(1)
     print("Do you want to play again?\n")
@@ -256,10 +259,9 @@ def validate_tower_number_from(num_input: str) -> bool:
 
 def move_disk_from() -> int:
     """
-    This function validates if a number was chosen as opposed to a string.
-    It checks if the number is between 1 and 3.
-    It validates - NOT YET - if there is no disk smaller than the chosen one
-    on the other towers.
+    User chooses from which stack they want to move the uppermost disk.
+    The user's choice is validated to make sure a number between 1 and 3
+    was chosen and that the chosen stack is not empty.
     """
     while True:
         src = input("FROM BASE NUMBER:\n")
@@ -286,16 +288,16 @@ def validate_tower_number_to(dst, src: int) -> bool:
     if pyramids[dst-1].can_place_disk(pyramids[src - 1].get_top_disk()):
         return True
     print_red("""You can't place a bigger disk on a smaller one.
-Choose another base or return it.""")
+Choose another base or return it to the original base.""")
     return False
 
 
 def move_disk_to(src: int) -> int:
     """
-    This function validates if a number was chosen as opposed to a string.
-    It checks if the number is between 1 and 3.
-    It validates(NOT YET) if there is no disk smaller than the chosen one
-    It validates if the the user didn't chose the same tower
+    User chooses on which stack/pyramid they want to place the chosen disk.
+    Input is validated to make sure a number is between 1 and 3
+    and that the chosen disk is smaller than the top disk on the chosen
+    pyramid.
     """
     while True:
         dst = input("TO BASE NUMBER:\n")
@@ -307,12 +309,15 @@ def move_disk_to(src: int) -> int:
 
 def draw_pyramids() -> None:
     """
-    Draws each pyramid up to height 6.
-    Draws pyramids next to each other
-    Add a new line after the third pyramid's row is printed.
+    Draws each pyramid up to height of 6. (Draws empty lines where needed.)
+    Draws pyramids next to each other.
+    Adds a new line after the third pyramid's row is printed.
     If pyramid row is empty, draws an empty line.
     If not empty, draws (6 - number of disks) empty lines
     and the respective number of disks.
+    Clears the screen before print.
+    If the last pyramid is full, it is printed in yellow.
+    Afterwards the color is reset back to default.
     """
     os.system("clear")
 
@@ -329,9 +334,8 @@ def draw_pyramids() -> None:
 
 def winning_message(score: int, height: int) -> None:
     """
-    Clears the screen.
-    Prints winning message and informs user about number of moves in comparison
-    with minimum number of moves.
+    Prints winning message and informs the user about number of moves
+    in comparison with minimum number of moves required.
     https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=You%20won%20!
     """
     # pylint: disable=anomalous-backslash-in-string
@@ -376,7 +380,6 @@ def good_bye() -> None:
 
 
 welcome()
-BASE = int(23)
 
 
 def main() -> None:
